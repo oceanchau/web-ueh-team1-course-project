@@ -48,20 +48,20 @@
             if (!isset($_SESSION["currentUser"]) && empty($_SESSION["currentUser"])) {
                 echo "
                 <li class='nav-item'>
-                    <a class='nav-link' href='signin' style='font-size:28px;color:#ffffff;'>Sign In</a>
+                    <a class='nav-link' href='signin' styles='font-size:28px;color:#ffffff;'>Sign In</a>
                 </li>
                 <li class='nav-item'>
-                    <a class='nav-link' href='signup' style='font-size:28px;color:#ffffff;'>Sign Up</a>
+                    <a class='nav-link' href='signup' styles='font-size:28px;color:#ffffff;'>Sign Up</a>
                 </li>
                 ";
             } else {
                 $currentUser = $_SESSION["currentUser"];
                 echo "
                 <li class='nav-item'>
-                    <a class='nav-link' href='profile' style='font-size:28px;color:#ffffff;'>Xin chào $currentUser</a>
+                    <a class='nav-link' href='profile' styles='font-size:28px;color:#ffffff;'>Xin chào $currentUser</a>
                 </li>
                 <li class='nav-item'>
-                    <a class='nav-link' href='logout' style='font-size:28px;color:#ffffff;'>Logout</a>
+                    <a class='nav-link' href='logout' styles='font-size:28px;color:#ffffff;'>Logout</a>
                 </li>
                 ";
             }

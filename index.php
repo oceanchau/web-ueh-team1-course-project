@@ -1,112 +1,58 @@
 <?php
-session_start();
 include 'configs/function.php';
 ?>
-<?php require_once('app/header.php'); ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<div id="mycarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#mycarousel" data-slide-to="1" class=""></li>
-    <li data-target="#mycarousel" data-slide-to="2" class=""></li>
-  </ol>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel='stylesheet' href='assets/styles/product.css'>
+    <title>Trang chủ - UEH COMMUNITY SHOP</title>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
 
-  <div class="carousel-inner">
-    <!--slide active-->
-    <div class="carousel-item active">
-      <img
-        class="d-block w-100"
-        src="assets/Ban1.png"
-        width="500px"
-        height="400px"
-      />
-      <!--slide text-->
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Tiêu đề Slide 1</h5>
-        <p>Chú thích cho Slide 1</p>
-      </div>
-    </div>
+<!--header-->
+<?php require_once("components/header.php") ?>
+<?php
+if (isset($_GET['p'])) {
+    switch ($_GET['p']) {
+        case 'signin':
+            require_once("components/login.php");
+            break;
+        case 'signup':
+            require_once("components/signup.php");
+            break;
+        case 'products':
+            require_once("components/product.php");
+            break;
+        default:
+            require_once("components/carousel.php");
+    }
+} else {
+    require_once("components/carousel.php");
+}
 
-    <!--slide2-->
-    <div class="carousel-item">
-      <img
-        class="d-block w-100"
-        src="assets/Ban2.jpg"
-        width="500px"
-        height="400px"
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Tiêu đề Slide 2</h5>
-        <p>Chú thích cho Slide 2</p>
-      </div>
-    </div>
-    <!--slide3-->
-    <div class="carousel-item">
-      <img
-        class="d-block w-100"
-        src="assets/Ban3.jpg"
-        width="500px"
-        height="400px"
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Tiêu đề Slide 1</h5>
-        <p>Chú thích cho Slide 1</p>
-      </div>
-    </div>
-  </div>
-  <a
-    class="carousel-control-prev"
-    href="#mycarousel"
-    role="button"
-    data-slide="prev"
-  >
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span></a
-  >
-  <a
-    class="carousel-control-next"
-    href="#mycarousel"
-    role="button"
-    data-slide="next"
-  >
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
 
-<div class="row">
-  <div
-    class="col-12 col-sm-9 py-3 container-fluid mt-3"
-    style="background-color: #33a7b8"
-  >
-    <!-- truy van 4 san pham moi nhat -->
-    <?php
-		$product_array = $db_handle->runQuery("SELECT * FROM tblproduct ORDER BY id DESC
-    limit 4"); if (!empty($product_array)) { foreach ($product_array as $key =>
-    $value) { ?>
-    <div class="media border p-3">
-      <img src="<?php echo $product_array[$key]["image"]; ?>" alt="<?php echo $product_array[$key]["name"]; ?>"
-      class="mr-3 mt-3 rounded-circle" style="width:60px;">
-      <div class="media-body">
-        <h4><?php echo $product_array[$key]["name"]; ?></h4>
-        <p><?php echo $product_array[$key]["price"]; ?></p>
-      </div>
-    </div>
-    <?php
-			}
-		}
-		?>
-  </div>
+?>
+<?php require_once("components/footer.php") ?>
 
-  <div class="col-12 col-sm-3" style="background-color: #000000">
-    <img src="assets/bor.png" style="width: 100%; height: 100%" />
-  </div>
-</div>
-
-<center>
-  <img src="assets/gtfull.png" class="rounded-sm" style="width: 90%" />
-</center>
-
-<a href="app/shopping_cart.php" title="Cart">View Cart</a><br />
-
-<?php include 'app/footer.php'; ?>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</body>
