@@ -39,6 +39,12 @@ if (isset($_GET['p'])) {
         case 'checkout':
             require_once("components/checkout.php");
             break;
+        case 'news':
+            if(isset($_GET['id']))
+                require_once("components/postDetail.php");
+            else
+                require_once("components/news.php");
+            break;
         default:
             require_once("components/carousel.php");
     }
