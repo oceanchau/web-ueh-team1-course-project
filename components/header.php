@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_GET['fn']) && $_GET['fn'] == "logout") {
     require_once("handler/user-handler.php");
     logout();

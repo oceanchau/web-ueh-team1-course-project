@@ -1,5 +1,6 @@
 <?php
 require_once("configs/conn.php");
+require_once("models/User.php");
 
 function logout()
 {

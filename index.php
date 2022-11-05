@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'configs/function.php';
 ?>
 <!doctype html>
