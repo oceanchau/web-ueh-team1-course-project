@@ -1,4 +1,4 @@
-<main>
+<section>
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
@@ -234,4 +234,4 @@
             </div>
         </div>
     </div><!-- /.container -->
-</main>
+</section>

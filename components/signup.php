@@ -1,11 +1,10 @@
 <?php
-require("handler/user-handler.php");
-if(isset($_POST['submit']))
-{
-    $userSignUp = new UserSignUp();
-    $userSignUp->username = $_POST["username"];
-    $userSignUp->password = md5($_POST["password"]);
-    $userSignUp->fname = $_POST["fname"];
+require_once("handler/user-handler.php");
+if (isset($_POST['submit'])) {
+    $userSignUp = (new User())
+        ->setFname($_POST["fname"])
+        ->setUsername($_POST["username"])
+        ->setPassword(md5($_POST["password"]));
     signup($userSignUp);
 }
 ?>
@@ -20,43 +19,50 @@ if(isset($_POST['submit']))
 
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                                <form class="mx-1 mx-md-4" method="post">
+                                <form class="mx-1 mx-md-4 needs-validation" method="post"
+                                      oninput='confirmPassword.setCustomValidity(confirmPassword.value !== password.value ? "Passwords do not match." : "")'
+                                >
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="text" id="form3Example1c" name="fname" class="form-control"/>
-                                            <label class="form-label" for="form3Example1c">Your Name</label>
+
+                                            <label class="form-label" for="fname">Your Name</label>
+                                            <input type="text" id="fname" required minlength="2" name="fname" class="form-control"/>
                                         </div>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="email" name="username" id="form3Example3c" class="form-control"/>
-                                            <label class="form-label" for="form3Example3c">Your Email</label>
+                                            <label class="form-label" for="username">Your Email</label>
+                                            <input type="email" name="username" required id="username"
+                                                   class="form-control"/>
                                         </div>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="password" required name="password" id="form3Example4c" class="form-control"/>
-                                            <label class="form-label" for="form3Example4c">Password</label>
+                                            <label class="form-label" for="password">Password</label>
+                                            <input type="password" required minlength="2" name="password" id="password"
+                                                   class="form-control"/>
                                         </div>
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                         <div class="form-outline flex-fill mb-0">
-                                            <input type="password" id="form3Example4cd" class="form-control"/>
-                                            <label class="form-label" for="form3Example4cd">Repeat your
+                                            <label class="form-label" for="confirmPassword">Repeat your
                                                 password</label>
+                                            <input type="password" required minlength="2" name="confirmPassword" id="confirmPassword"
+                                                   class="form-control"/>
                                         </div>
                                     </div>
 
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <input type="submit" name="submit" class="btn btn-primary btn-lg" value="Register"/>
+                                        <button name="submit" class="btn btn-primary btn-lg" type="submit">Register
+                                        </button>
                                     </div>
                                 </form>
 

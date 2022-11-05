@@ -1,6 +1,13 @@
 <?php
 require_once("configs/conn.php");
 
+function logout()
+{
+    unset($_SESSION['username']);
+    session_destroy();
+    header("Location: /");
+}
+
 function signup($user)
 {
     $db = DBController::getInstance();
@@ -10,9 +17,9 @@ function signup($user)
     ');
 
         $statement->execute([
-            'fname' => $user->fname,
-            'username' => $user->username,
-            'password' => $user->password,
+            'fname' => $user->getFname(),
+            'username' => $user->getUsername(),
+            'password' => $user->getPassword(),
         ]);
         header("Location: /?p=signin");
 
@@ -42,13 +49,5 @@ function login($username, $password)
         echo $e->getMessage();
     }
 }
-
-class UserSignUp
-{
-    public $fname;
-    public $username;
-    public $password;
-}
-
 //header("Location: /");
 ?>
