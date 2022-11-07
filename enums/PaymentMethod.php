@@ -1,6 +1,6 @@
 <?php
-enum PaymentMethod
+abstract class PaymentMethod
 {
-    case PAYMENT_ON_DELIVERY;
-    case CREDIT_CARD;
+    const PAYMENT_ON_DELIVERY = "PAYMENT_ON_DELIVERY";
+    const CREDIT_CARD = "PAYMENT_ON_DELIVERY";
 }

@@ -4,8 +4,16 @@ require_once("handler/payment-handler.php");
 $currentUser = $_SESSION['currentUser'];
 $address = getShippingAddress($currentUser);
 
-if(isset($address)) {
-    $address->setUsername($currentUser);
+if (!isset($address)) {
+    $address = (new ShippingAddress())
+        ->setUsername($currentUser)
+        ->setPhone('')
+        ->setZip('')
+        ->setAddress('')
+        ->setFirstName('')
+        ->setLastName('')
+        ->setArea('')
+        ->setProvince('');
 }
 
 if (isset($_POST['submit'])) {
@@ -23,10 +31,10 @@ if (isset($_POST['submit'])) {
     }
     $transaction = (new Transaction())
         ->setAmount(2)
-        ->setPaymentMethod(PaymentMethod::CREDIT_CARD->name)
+        ->setPaymentMethod(PaymentMethod::CREDIT_CARD)
         ->setShippingAddressId($address->getId())
         ->setOrderId(1)
-        ->setStatus(TransactionStatus::PAID->name)
+        ->setStatus(TransactionStatus::PAID)
         ->setUsername($_SESSION['currentUser']);
     saveTransaction($transaction);
 }

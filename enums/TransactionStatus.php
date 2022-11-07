@@ -1,7 +1,7 @@
 <?php
-enum TransactionStatus
+abstract class TransactionStatus
 {
-    case PENDING;
-    case PAID;
-    case CANCEL;
+    const PENDING = "PENDING";
+    const PAID = "PAID";
+    const CANCEL = " CANCEL";
 }

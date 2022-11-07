@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 include 'configs/function.php';
 ?>
 <!doctype html>
@@ -55,7 +56,7 @@ if (isset($_GET['p'])) {
 ?>
 <?php require_once("components/footer.php") ?>
 <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
