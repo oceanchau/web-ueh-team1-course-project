@@ -1,37 +1,100 @@
 <?php
-class ShippingAddress {
+
+class ShippingAddress
+{
     private $id;
-    private $firstName;
-    private $lastName;
+    private $fullname;
     private $username;
     private $address;
-    private $area;
-    private $province;
-    private $zip;
+    private $city;
     private $phone;
 
-    /**
-     * @return mixed
-     */
-    public function getPhone()
+    static function saveShippingAddress(ShippingAddress $shippingAddress): ?ShippingAddress
     {
-        return $this->phone;
+        $db = DatabaseConfig::getInstance();
+
+        try {
+            $existed = self::existsByUsername($shippingAddress->getUsername());
+            if ($existed > 1) {
+                throw new ErrorException("Limited add Shipping Address");
+            }
+            if ($existed > 0) {
+                $sql = '
+            UPDATE tbl_shipping_address
+            SET 
+                `fullname` = :fullname,
+                `username` = :username,
+                `address` = :address,
+                `city` = :city,
+                `phone` = :phone
+            WHERE id = :id
+            ';
+            } else {
+                $sql = '
+            INSERT INTO tbl_shipping_address(id, fullname, username, address, city, phone) 
+            VALUES (:id, :fullname, :username, :address, :city, :phone)
+            ';
+            }
+
+            $statement = $db->prepare($sql);
+
+            $statement->execute([
+                'id' => $shippingAddress->getId(),
+                'fullname' => $shippingAddress->getFullname(),
+                'username' => $shippingAddress->getUsername(),
+                'address' => $shippingAddress->getAddress(),
+                'city' => $shippingAddress->getCity(),
+                'phone' => $shippingAddress->getPhone()
+            ]);
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        return $shippingAddress;
     }
 
-    public function __toString(): string
+    static function existsByUsername($username): bool
     {
-        return $this->getId()." ".$this->getUsername();
+        $db = DatabaseConfig::getInstance();
+        $req = $db->prepare('
+            SELECT count(1) FROM tbl_shipping_address s
+            WHERE s.username = :username
+        ');
+
+        $req->execute([
+            'username' => $username
+        ]);
+
+
+        return $req->fetchColumn();
     }
 
-    /**
-     * @param mixed $phone
-     * @return ShippingAddress
-     */
-    public function setPhone($phone)
+    static function find($username): array
     {
-        $this->phone = $phone;
-        return $this;
+        $list = [];
+        $db = DatabaseConfig::getInstance();
+        $req = $db->prepare('
+            SELECT s.* FROM tbl_shipping_address s
+            WHERE s.username = :username
+        ');
+
+        $req->execute([
+            'username' => $username
+        ]);
+
+        foreach ($req->fetchAll() as $item) {
+            $list[] = (new ShippingAddress())
+                ->setId($item['id'])
+                ->setFullname($item['fullname'])
+                ->setUsername($item['username'])
+                ->setAddress($item['address'])
+                ->setCity($item['city'])
+                ->setPhone($item['phone']);
+        }
+
+        return $list;
     }
+
     /**
      * @return mixed
      */
@@ -53,36 +116,18 @@ class ShippingAddress {
     /**
      * @return mixed
      */
-    public function getFirstName()
+    public function getFullname()
     {
-        return $this->firstName;
+        return $this->fullname;
     }
 
     /**
-     * @param mixed $firstName
+     * @param mixed $fullname
      * @return ShippingAddress
      */
-    public function setFirstName($firstName)
+    public function setFullname($fullname)
     {
-        $this->firstName = $firstName;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param mixed $lastName
-     * @return ShippingAddress
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
+        $this->fullname = $fullname;
         return $this;
     }
 
@@ -125,54 +170,36 @@ class ShippingAddress {
     /**
      * @return mixed
      */
-    public function getArea()
+    public function getCity()
     {
-        return $this->area;
+        return $this->city;
     }
 
     /**
-     * @param mixed $area
+     * @param mixed $city
      * @return ShippingAddress
      */
-    public function setArea($area)
+    public function setCity($city)
     {
-        $this->area = $area;
+        $this->city = $city;
         return $this;
     }
 
     /**
      * @return mixed
      */
-    public function getProvince()
+    public function getPhone()
     {
-        return $this->province;
+        return $this->phone;
     }
 
     /**
-     * @param mixed $province
+     * @param mixed $phone
      * @return ShippingAddress
      */
-    public function setProvince($province)
+    public function setPhone($phone)
     {
-        $this->province = $province;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getZip()
-    {
-        return $this->zip;
-    }
-
-    /**
-     * @param mixed $zip
-     * @return ShippingAddress
-     */
-    public function setZip($zip)
-    {
-        $this->zip = $zip;
+        $this->phone = $phone;
         return $this;
     }
 }
