@@ -27,12 +27,12 @@
                                 <p class="text-white-50 mb-5">Please enter your login and password!</p>
                                 <form action="../controllers/user_controller.php" method="post">
                                     <div class="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailX" name="email" class="form-control form-control-lg" />
+                                        <input type="email" id="typeEmailX" name="email" placeholder="email" class="form-control form-control-lg" />
                                         <label class="form-label" for="typeEmailX">Email</label>
                                     </div>
 
                                     <div class="form-outline form-white mb-4">
-                                        <input type="password" name="password" id="typePasswordX"
+                                        <input type="password" name="password" placeholder="password" id="typePasswordX"
                                             class="form-control form-control-lg" />
                                         <label class="form-label" for="typePasswordX">Password</label>
                                     </div>

@@ -1,9 +1,5 @@
 <?php
-$pageNumber = getParams("pageNumber");
-$limit = getParams("limit");
-
 $initial_pages = ($pageNumber) * $limit;
-$total_pages = ceil(200 / $limit);
 
 $isPreDisable = $pageNumber == 0 ? "disabled" : "";
 $isNextDisable = $pageNumber == $total_pages - 1 ? "disabled" : "";

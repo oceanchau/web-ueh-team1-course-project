@@ -2,16 +2,19 @@
 class Transaction
 {
  
-    private $transactions;
+
     private $connect;
     public function __construct()
     {
       $this->connect = getConnect();
     }
-
+    public function getBetSeller()
+    {
+        return [];
+    }
     public  function getTransactions(): array
     {
-        return $this->transactions;
+        return [];
     }
 
     public  function getTransactionById($id)

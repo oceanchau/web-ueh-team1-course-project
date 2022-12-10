@@ -1,7 +1,10 @@
 <?php 
 require_once "models/transaction_model.php"; 
-
 $db = new Transaction();
+$pageNumber = getParams("pageNumber");
+$limit = getParams("limit");
+$total_pages = ceil(count([]) / $limit);
+
 
 ?>
 <div class="card h-100">
