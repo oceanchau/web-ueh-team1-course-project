@@ -6,7 +6,7 @@
         }
         echo '
             <li class="nav-item ">
-                <a class="nav-link" href="?controller=shop&id=' . $category->$id . '">
+                <a class="nav-link" href="/?controller=shop&id=' . $category->$id . '">
                     ' . $category->name . '
                 </a>
             </li>

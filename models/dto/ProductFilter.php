@@ -8,7 +8,7 @@ class ProductFilter
     private $priceStart;
     private $priceEnd;
     private $page = 1;
-    private $limit = 1;
+    private $limit = 8;
 
     /**
      * @return mixed

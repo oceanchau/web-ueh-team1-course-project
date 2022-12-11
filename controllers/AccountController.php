@@ -32,12 +32,11 @@ class AccountController extends BaseController
     public function signIn()
     {
         $isLogged = User::login($_POST['inputEmail4'], md5($_POST['inputPassword4']));
-        if ($isLogged) {
-            $_SESSION['currentUser'] = $_POST['inputEmail4'];
-            echo 1;
-            return;
+        if (!$isLogged) {
+           echo 0;
         }
-        echo 0;
+        $_SESSION['currentUser'] = $_POST['inputEmail4'];
+        echo $_SESSION['currentUser'];
     }
 
     public function signUp()

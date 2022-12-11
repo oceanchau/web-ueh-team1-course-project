@@ -39,7 +39,7 @@ function showStatus(string $status): string
                 <div class="col-lg-9 col-md-8 col-12">
                     <div class="py-6 p-md-6 p-lg-10">
                         <!-- heading -->
-                        <h2 class="mb-6">Your Orders</h2>
+                        <h2 class="mb-6">Đơn hàng của bạn</h2>
 
                         <div class="table-responsive border-0">
                             <!-- Table -->
@@ -48,12 +48,12 @@ function showStatus(string $status): string
                                 <thead class="table-light">
                                 <tr>
                                     <th class="border-0">&nbsp;</th>
-                                    <th class="border-0">Product</th>
-                                    <th class="border-0">Order</th>
-                                    <th class="border-0">Date</th>
-                                    <th class="border-0">Items</th>
-                                    <th class="border-0">Status</th>
-                                    <th class="border-0">Amount</th>
+                                    <th class="border-0">Sản phẩm</th>
+                                    <th class="border-0">Đơn hàng</th>
+                                    <th class="border-0">Ngày đặt</th>
+                                    <th class="border-0">Số lượng</th>
+                                    <th class="border-0">Trạng thái</th>
+                                    <th class="border-0">Thành tiền</th>
 
                                     <th class="border-0"></th>
                                 </tr>

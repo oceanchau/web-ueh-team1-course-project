@@ -1,122 +1,81 @@
 <footer class="footer">
     <div class="container">
         <div class="row g-4 py-4">
-            <div class="col-12 col-md-12 col-lg-4">
-                <h6 class="mb-4">Categories</h6>
+            <div class="col-12 col-md-6 col-lg-3">
+                <h6 class="mb-4">Về chúng tôi</h6>
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Vegetables &amp;
-                                    Fruits</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link"> Breakfast &amp;
-                                    instant food</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link"> Bakery &amp;
-                                    Biscuits</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Atta, rice &amp;
-                                    dal</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Sauces &amp;
-                                    spreads</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Organic &amp;
-                                    gourmet</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link"> Baby care</a>
-                            </li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Cleaning
-                                    essentials</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Personal
-                                    care</a></li>
+                            <li class="nav-item mb-2"><a href="/?controller=pages&action=about" class="nav-link">Giới
+                                    thiệu</a></li>
+                            <li class="nav-item mb-2"><a href="/?controller=pages&action=about" class="nav-link">Chăm sóc khách hàng</a></li>
                         </ul>
                     </div>
-                    <div class="col-6">
+                </div>
+                <h6 class="mb-4">Địa chỉ</h6>
+                <div class="row">
+                    <div class="col-12">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Dairy, bread
-                                    &amp; eggs</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link"> Cold drinks
-                                    &amp; juices</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link"> Tea, coffee
-                                    &amp; drinks</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Masala, oil
-                                    &amp; more</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Chicken, meat
-                                    &amp; fish</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Paan corner</a>
-                            </li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link"> Pharma &amp;
-                                    wellness</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Home &amp;
-                                    office</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-grid.html" class="nav-link">Pet care</a>
-                            </li>
+                            <li class="nav-item mb-2">INNO SHOP
+                                Viện Đổi mới Sáng tạo</li>
+                            <li class="nav-item mb-2">232/6 Võ Thị Sáu, Phường Võ Thị Sáu, Quận 3, TP. Hồ Chí Minh</li>
+                            <li class="nav-item mb-2">077 696 1010</li>
+                            <li class="nav-item mb-2">uii.incubator@ueh.edu.vn</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <h6 class="mb-4">Danh mục</h6>
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav flex-column">
+                            <?php
+                            foreach ($categories as $item) {
+                                echo '
+                                <li class="nav-item mb-2"><a href="/?controller=shop&id='.$item->id.'" class="nav-link">'.$item->name.'</a></li>
+                                ';
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
 
             </div>
-            <div class="col-12 col-md-12 col-lg-8">
-                <div class="row g-4">
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <h6 class="mb-4">Get to know us</h6>
+            <div class="col-12 col-md-6 col-lg-3">
+                <h6 class="mb-4">Chính sách bán hàng</h6>
+                <div class="row">
+                    <div class="col-12">
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="./pages/about.html" class="nav-link">Company</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/about.html" class="nav-link">About</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/blog.html" class="nav-link">Blog</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Help Center</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Our Value</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <h6 class="mb-4">For Consumers</h6>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Payments</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Shipping</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Product Returns</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">FAQ</a></li>
-                            <li class="nav-item mb-2"><a href="./pages/shop-shop-checkout.html" class="nav-link">Shop
-                                    Checkout</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <h6 class="mb-4">Become a Shopper</h6>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Shopper Opportunities</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Become a Shopper</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Earnings</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Ideas &amp; Guides</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">New Retailers</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <h6 class="mb-4">Freshcart programs</h6>
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Freshcart programs</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Gift Cards</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Promos &amp; Coupons</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Freshcart Ads</a></li>
-                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Careers</a></li>
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Hướng dẫn mua hàng</a></li>
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Chính sách giao hàng</a></li>
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Hình thức thanh toán</a></li>
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Chính sách bảo hành đổi trả</a></li>
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Chính sách bảo mật thanh toán</a></li>
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Chinhs sách bảo mật thông tin</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-
+            <div class="col-12 col-md-6 col-lg-3">
+                <h6 class="mb-4">Hợp tác và liên kết</h6>
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Giới thiệu Inno Shop</a></li>
+                            <li class="nav-item mb-2"><a href="#!" class="nav-link">Tiếp thị liên kết</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="border-top py-4">
             <div class="row align-items-center">
                 <div class="col-lg-5 text-lg-start text-center mb-2 mb-lg-0">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item text-dark">Payment Partners</li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="../../assets/images/payment/amazonpay.svg" alt=""></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="./assets/images/payment/american-express.svg" alt=""></a>
-                        </li>
+                        <li class="list-inline-item text-dark">Đơn vị thanh toán</li>
                         <li class="list-inline-item">
                             <a href="#!"><img src="./assets/images/payment//mastercard.svg" alt=""></a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="#!"><img src="./assets/images/payment/paypal.svg" alt=""></a>
                         </li>
                         <li class="list-inline-item">
                             <a href="#!"><img src="./assets/images/payment/visa.svg" alt=""></a>
@@ -125,7 +84,7 @@
                 </div>
                 <div class="col-lg-7 mt-4 mt-md-0">
                     <ul class="list-inline mb-0 text-lg-end text-center">
-                        <li class="list-inline-item mb-2 mb-md-0 text-dark">Get deliveries with LightCart</li>
+                        <li class="list-inline-item mb-2 mb-md-0 text-dark">Tải app UEH COMMUNITY SHOP</li>
                         <li class="list-inline-item ms-4">
                             <a href="#!"> <img src="./assets/images/appbutton/appstore-btn.svg" alt=""
                                                style="width: 140px;"></a></li>
@@ -139,11 +98,12 @@
         </div>
         <div class="border-top py-4">
             <div class="row align-items-center">
-                <div class="col-md-6"><span class="small text-muted">Copyright 2022 © LightCart eCommerce . All rights reserved. Powered by <a
-                                href="/">Teamone</a>.</span></div>
+                <div class="col-md-6"><span class="small text-muted">Bản quyền thuộc về <a
+                                href=""/?">Nhóm 1 @ UEH</a> . Cung cấp bởi <a
+                                href=""/?">Oceanchau</a>.</span></div>
                 <div class="col-md-6">
                     <ul class="list-inline text-md-end mb-0 small mt-3 mt-md-0">
-                        <li class="list-inline-item text-muted">Follow us on</li>
+                        <li class="list-inline-item text-muted">Follow UEH COMMUNITY SHOP on</li>
                         <li class="list-inline-item me-1">
                             <a href="#!" class="icon-shape icon-sm social-links">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

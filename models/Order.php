@@ -10,6 +10,31 @@ class Order
     private $userId;
     private $createdAt;
 
+    static function save(OrderData $orderData): void
+    {
+        $db = DatabaseConfig::getInstance();
+        try {
+            $db->beginTransaction();
+            $req = $db->prepare('INSERT INTO tbl_orders(status, amount, payment, userId, createdAt) 
+            VALUES (:status, :amount, :payment, :userId, :createdAt)');
+
+            $req->bindValue('status', $orderData->getStatus());
+            $req->bindValue('amount', $orderData->getAmount());
+            $req->bindValue('payment', '$orderData->getPayment()');
+            $req->bindValue('userId', $orderData->getUsername());
+            $req->bindValue('createdAt', $orderData->getCreatedAt());
+
+            $req->execute();
+            $db->commit();
+            $id = $db->lastInsertId();
+            $orderData->setId($id);
+            //TODO: continue get id after that response FE and FE query with orderId
+        } catch (Exception) {
+            $db->rollBack();
+            throw new ErrorException("Lỗi hệ thống");
+        }
+    }
+
     static function all(): array
     {
         $list = [];

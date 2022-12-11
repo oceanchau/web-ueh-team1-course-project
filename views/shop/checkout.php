@@ -13,8 +13,8 @@
                     <div>
                         <div class="mb-8">
                             <!-- text -->
-                            <h1 class="fw-bold mb-0">Checkout</h1>
-                            <p class="mb-0">Already have an account? Click here to <a href="#!">Sign in</a>.</p>
+                            <h1 class="fw-bold mb-0">Thanh toán</h1>
+                            <p class="mb-0">Bạn chưa có tài khoản? <a href="#!">Đăng ký</a> để nhận ưu đãi.</p>
                         </div>
                     </div>
                 </div>
@@ -33,11 +33,11 @@
                                     <a href="#" class="fs-5 text-inherit collapsed h4" data-bs-toggle="collapse"
                                        data-bs-target="#flush-collapseOne" aria-expanded="true"
                                        aria-controls="flush-collapseOne">
-                                        <i class="feather-icon icon-map-pin me-2 text-muted"></i>Add delivery address
+                                        <i class="feather-icon icon-map-pin me-2 text-muted"></i>Địa chỉ giao hàng
                                     </a>
                                     <!-- btn -->
                                     <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
-                                       data-bs-target="#addAddressModal">Add a new address </a>
+                                       data-bs-target="#addAddressModal">Thêm địa chỉ</a>
                                     <!-- collapse -->
                                 </div>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse show"
@@ -51,7 +51,7 @@
                                                         <input class="form-check-input" type="radio"
                                                                name="flexRadioDefault" id="homeRadio" checked>
                                                         <label class="form-check-label text-dark" for="homeRadio">
-                                                            Home
+                                                            Trang chủ
                                                         </label>
                                                     </div>
                                                     <!-- address -->
@@ -73,7 +73,7 @@
                                                         <input class="form-check-input" type="radio"
                                                                name="flexRadioDefault" id="officeRadio">
                                                         <label class="form-check-label text-dark" for="officeRadio">
-                                                            Office
+                                                            Cơ quan
                                                         </label>
                                                     </div>
                                                     <address><strong>Nitu Chauhan</strong> <br> 3853 Coal Road, <br>
@@ -95,26 +95,20 @@
                                 <a href="#" class="text-inherit h5" data-bs-toggle="collapse"
                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
                                    aria-controls="flush-collapseThree">
-                                    <i class="feather-icon icon-shopping-bag me-2 text-muted"></i>Delivery instructions
+                                    <i class="feather-icon icon-shopping-bag me-2 text-muted"></i>Ghi chú giao hàng
                                     <!-- collapse --> </a>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse "
+                                <div id="flush-collapseThree" class="accordion-collapse collapse show"
                                      data-bs-parent="#accordionFlushExample">
 
                                     <div class="mt-5">
-                                        <label for="DeliveryInstructions" class="form-label sr-only">Delivery
-                                            instructions</label>
+                                        <label for="DeliveryInstructions" class="form-label sr-only">Ghi chú giao hàng</label>
                                         <textarea class="form-control" id="DeliveryInstructions" rows="3"
-                                                  placeholder="Write delivery instructions "></textarea>
-                                        <p class="form-text">Add instructions for how you want your order shopped and/or
-                                            delivered</p>
+                                                  placeholder="Viết ghi chú giao hàng "></textarea>
+                                        <p class="form-text">Thêm ghi chú về cách bạn muốn đơn đặt hàng của mình được mua và/hoặc giao</p>
                                         <div class="mt-5 d-flex justify-content-end">
-                                            <a href="#" class="btn btn-outline-gray-400 text-muted"
-                                               data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                               aria-expanded="false"
-                                               aria-controls="flush-collapseTwo">Prev</a>
                                             <a href="#" class="btn btn-primary ms-2" data-bs-toggle="collapse"
                                                data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                               aria-controls="flush-collapseFour">Next</a>
+                                               aria-controls="flush-collapseFour">Tiếp tục</a>
                                         </div>
                                     </div>
                                 </div>
@@ -126,36 +120,14 @@
                                 <a href="#" class="text-inherit h5" data-bs-toggle="collapse"
                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
                                    aria-controls="flush-collapseFour">
-                                    <i class="feather-icon icon-credit-card me-2 text-muted"></i>Payment Method
+                                    <i class="feather-icon icon-credit-card me-2 text-muted"></i>Phương thức thanh toán
                                     <!-- collapse --> </a>
-                                <div id="flush-collapseFour" class="accordion-collapse collapse "
+                                <div id="flush-collapseFour" class="accordion-collapse collapse show"
                                      data-bs-parent="#accordionFlushExample">
 
                                     <div class="mt-5">
                                         <div>
 
-                                            <div class="card card-bordered shadow-none mb-2">
-                                                <!-- card body -->
-                                                <div class="card-body p-6">
-                                                    <div class="d-flex">
-                                                        <div class="form-check">
-                                                            <!-- checkbox -->
-                                                            <input class="form-check-input" type="radio"
-                                                                   name="flexRadioDefault" id="paypal">
-                                                            <label class="form-check-label ms-2" for="paypal">
-
-                                                            </label>
-                                                        </div>
-                                                        <div>
-                                                            <!-- title -->
-                                                            <h5 class="mb-1 h6"> Payment with Paypal</h5>
-                                                            <p class="mb-0 small">You will be redirected to PayPal
-                                                                website to complete your purchase
-                                                                securely.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <!-- card -->
                                             <div class="card card-bordered shadow-none mb-2">
                                                 <!-- card body -->
@@ -171,16 +143,15 @@
                                                         </div>
                                                         <div>
                                                             <h5 class="mb-1 h6"> Credit / Debit Card</h5>
-                                                            <p class="mb-0 small">Safe money transfer using your bank
-                                                                accou k account. We support
-                                                                Mastercard tercard, Visa, Discover and Stripe.</p>
+                                                            <p class="mb-0 small">Chúng tôi hỗ trợ
+                                                                Mastercard card, Visa</p>
                                                         </div>
                                                     </div>
                                                     <div class="row g-2">
                                                         <div class="col-12">
                                                             <!-- input -->
                                                             <div class="mb-3">
-                                                                <label class="form-label">Card Number</label>
+                                                                <label class="form-label">Số thẻ</label>
                                                                 <input type="text" class="form-control"
                                                                        placeholder="1234 4567 6789 4321">
                                                             </div>
@@ -188,17 +159,17 @@
                                                         <div class="col-md-6 col-12">
                                                             <!-- input -->
                                                             <div class="mb-3 mb-lg-0">
-                                                                <label class="form-label">Name on card </label>
+                                                                <label class="form-label">Tên chủ thẻ </label>
                                                                 <input type="text" class="form-control"
-                                                                       placeholder="Enter your first name">
+                                                                       placeholder="Nhập tên chủ thẻ">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3 col-12">
                                                             <!-- input -->
                                                             <div class="mb-3  mb-lg-0 position-relative">
-                                                                <label class="form-label">Expiry date </label>
+                                                                <label class="form-label">Thời hạn </label>
                                                                 <input class="form-control flatpickr " type="text"
-                                                                       placeholder="Select Date">
+                                                                       placeholder="Chọn ngày">
                                                                 <div class="position-absolute bottom-0 end-0 p-3 lh-1">
                                                                     <i class="bi bi-calendar text-muted"></i>
                                                                 </div>
@@ -218,29 +189,6 @@
                                                 </div>
                                             </div>
                                             <!-- card -->
-                                            <div class="card card-bordered shadow-none mb-2">
-                                                <!-- card body -->
-                                                <div class="card-body p-6">
-                                                    <!-- check input -->
-                                                    <div class="d-flex">
-                                                        <div class="form-check">
-                                                            <input class="form-check-input" type="radio"
-                                                                   name="flexRadioDefault" id="payoneer">
-                                                            <label class="form-check-label ms-2" for="payoneer">
-
-                                                            </label>
-                                                        </div>
-                                                        <div>
-                                                            <!-- title -->
-                                                            <h5 class="mb-1 h6"> Pay with Payoneer</h5>
-                                                            <p class="mb-0 small">You will be redirected to Payoneer
-                                                                website to complete your
-                                                                purchase securely.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- card -->
                                             <div class="card card-bordered shadow-none">
                                                 <div class="card-body p-6">
                                                     <!-- check input -->
@@ -254,9 +202,8 @@
                                                         </div>
                                                         <div>
                                                             <!-- title -->
-                                                            <h5 class="mb-1 h6"> Cash on Delivery</h5>
-                                                            <p class="mb-0 small">Pay with cash when your order is
-                                                                delivered.</p>
+                                                            <h5 class="mb-1 h6"> Thanh toán khi nhận hàng</h5>
+                                                            <p class="mb-0 small">Thanh toán khi đơn hàng được giao đến.</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -266,8 +213,8 @@
                                                 <a href="#" class="btn btn-outline-gray-400 text-muted"
                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
                                                    aria-expanded="false"
-                                                   aria-controls="flush-collapseThree">Prev</a>
-                                                <a href="#" class="btn btn-primary ms-2">Place Order</a>
+                                                   aria-controls="flush-collapseThree">Quay lại</a>
+                                                <button href="#" id="submitPlaceOrder" type="button" class="btn btn-primary ms-2">Đặt hàng</button>
                                             </div>
                                         </div>
                                     </div>
@@ -283,7 +230,7 @@
                     <div class="col-12 col-md-12 offset-lg-1 col-lg-4">
                         <div class="mt-4 mt-lg-0">
                             <div class="card shadow-sm">
-                                <h5 class="px-6 py-4 bg-transparent mb-0">Order Details</h5>
+                                <h5 class="px-6 py-4 bg-transparent mb-0">Chi tiết hóa đơn</h5>
                                 <ul class="list-group list-group-flush">
                                     <!-- list group item -->
                                     <li class="list-group-item px-4 py-3">
@@ -301,7 +248,7 @@
 
                                             </div>
                                             <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">$5.00</span>
+                                                <span class="fw-bold">đ5.00</span>
 
                                             </div>
                                         </div>
@@ -323,8 +270,8 @@
 
                                             </div>
                                             <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">$20.00</span>
-                                                <div class="text-decoration-line-through text-muted small">$26.00</div>
+                                                <span class="fw-bold">đ20.00</span>
+                                                <div class="text-decoration-line-through text-muted small">đ26.00</div>
                                             </div>
                                         </div>
 
@@ -345,8 +292,8 @@
 
                                             </div>
                                             <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">$15.00</span>
-                                                <div class="text-decoration-line-through text-muted small">$20.00</div>
+                                                <span class="fw-bold">đ15.00</span>
+                                                <div class="text-decoration-line-through text-muted small">đ20.00</div>
                                             </div>
                                         </div>
 
@@ -367,8 +314,8 @@
 
                                             </div>
                                             <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">$15.00</span>
-                                                <div class="text-decoration-line-through text-muted small">$20.00</div>
+                                                <span class="fw-bold">đ15.00</span>
+                                                <div class="text-decoration-line-through text-muted small">đ20.00</div>
                                             </div>
                                         </div>
 
@@ -378,24 +325,24 @@
                                     <li class="list-group-item px-4 py-3">
                                         <div class="d-flex align-items-center justify-content-between   mb-2">
                                             <div>
-                                                Item Subtotal
+                                                Tổng tiền
 
                                             </div>
                                             <div class="fw-bold">
-                                                $70.00
+                                                đ70.00
 
                                             </div>
 
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between  ">
                                             <div>
-                                                Service Fee <i class="feather-icon icon-info text-muted"
+                                                VAT <i class="feather-icon icon-info text-muted"
                                                                data-bs-toggle="tooltip"
-                                                               title="Default tooltip"></i>
+                                                               title=thuế 10% đơn hảng></i>
 
                                             </div>
                                             <div class="fw-bold">
-                                                $3.00
+                                                đ3.00
 
                                             </div>
 
@@ -406,10 +353,10 @@
                                     <li class="list-group-item px-4 py-3">
                                         <div class="d-flex align-items-center justify-content-between fw-bold">
                                             <div>
-                                                Subtotal
+                                                Tổng tiền
                                             </div>
                                             <div>
-                                                $73.00
+                                                đ73.00
 
 
                                             </div>
@@ -475,8 +422,8 @@
                 <div class="d-flex justify-content-between mb-5">
                     <!-- heading -->
                     <div>
-                        <h5 class="h6 mb-1" id="addAddressModalLabel">New Shipping Address</h5>
-                        <p class="small mb-0">Add new shipping address for your order delivery.</p>
+                        <h5 class="h6 mb-1" id="addAddressModalLabel">Địa chỉ giao hàng</h5>
+                        <p class="small mb-0">Thêm đia chỉ giao đơn.</p>
                     </div>
                     <div>
                         <!-- button -->
@@ -498,11 +445,11 @@
                     <!-- col -->
                     <div class="col-12">
 
-                        <input type="text" class="form-control" placeholder="Address Line 1">
+                        <input type="text" class="form-control" placeholder="Địa chỉ Line 1">
                     </div>
                     <div class="col-12">
                         <!-- button -->
-                        <input type="text" class="form-control" placeholder="Address Line 2">
+                        <input type="text" class="form-control" placeholder="Địa chỉ Line 2">
                     </div>
                     <div class="col-12">
                         <!-- button -->

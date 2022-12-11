@@ -6,13 +6,13 @@
             <!-- nav item -->
             <li class="nav-item">
                 <!-- nav link -->
-                <a class="nav-link <?php if($_GET['action'] == 'orders') echo 'active'?>" aria-current="page" href="?controller=account&action=orders"><i
-                            class="feather-icon icon-shopping-bag me-2"></i>Your Orders</a>
+                <a class="nav-link <?php if($_GET['action'] == 'orders') echo 'active'?>" aria-current="page" href="/?controller=account&action=orders"><i
+                            class="feather-icon icon-shopping-bag me-2"></i>Đơn hàng của bạn</a>
             </li>
             <!-- nav item -->
             <li class="nav-item">
-                <a class="nav-link <?php if($_GET['action'] == 'address') echo 'active'?>" href="?controller=account&action=address"><i
-                            class="feather-icon icon-map-pin me-2"></i>Address</a>
+                <a class="nav-link <?php if($_GET['action'] == 'address') echo 'active'?>" href="/?controller=account&action=address"><i
+                            class="feather-icon icon-map-pin me-2"></i>Địa chỉ</a>
             </li>
             <!-- nav item -->
             <li class="nav-item">
@@ -20,8 +20,7 @@
             </li>
             <!-- nav item -->
             <li class="nav-item">
-                <a class="nav-link " href="/"><i class="feather-icon icon-log-out me-2"></i>Log
-                    out</a>
+                <a class="nav-link " href=""/?"><i class="feather-icon icon-log-out me-2"></i>Đăng xuất</a>
             </li>
 
         </ul>
@@ -40,13 +39,13 @@
         <ul class="nav flex-column nav-pills nav-pills-dark">
             <!-- nav item -->
             <li class="nav-item">
-                <a class="nav-link <?php if($_GET['action'] == 'orders') echo 'active'?>" aria-current="page" href="?controller=account&action=orders"><i
-                            class="feather-icon icon-shopping-bag me-2"></i>Your Orders</a>
+                <a class="nav-link <?php if($_GET['action'] == 'orders') echo 'active'?>" aria-current="page" href="/?controller=account&action=orders"><i
+                            class="feather-icon icon-shopping-bag me-2"></i>Đơn hàng của bạn</a>
             </li>
             <!-- nav item -->
             <li class="nav-item">
-                <a class="nav-link <?php if($_GET['action'] == 'address') echo 'active'?>" href="?controller=account&action=address"><i
-                            class="feather-icon icon-map-pin me-2"></i>Address</a>
+                <a class="nav-link <?php if($_GET['action'] == 'address') echo 'active'?>" href="/?controller=account&action=address"><i
+                            class="feather-icon icon-map-pin me-2"></i>Địa chỉ</a>
             </li>
         </ul>
         <hr class="my-6">
@@ -55,7 +54,7 @@
             <ul class="nav flex-column nav-pills nav-pills-dark">
                 <!-- nav item -->
                 <li class="nav-item">
-                    <a class="nav-link " href="/"><i class="feather-icon icon-log-out me-2"></i>Log out</a>
+                    <a class="nav-link " href=""/?"><i class="feather-icon icon-log-out me-2"></i>Đăng xuất</a>
                 </li>
 
             </ul>

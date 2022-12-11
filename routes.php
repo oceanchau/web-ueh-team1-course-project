@@ -2,7 +2,7 @@
 $controllers = array(
     'pages' => ['home', 'about', 'contact', 'signIn', 'signUp', 'forgotPassword', 'error'],
     'account' => ['index', 'orders', 'address', 'signIn', 'logout'],
-    'shop' => ['index', 'single', 'checkout', 'test'],
+    'shop' => ['index', 'single', 'checkout', 'checkoutOrder', 'placeOrder'],
 );
 
 //if (isset($_GET['search'])) {

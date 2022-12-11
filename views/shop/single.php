@@ -57,7 +57,7 @@
 
 
                             <!-- input -->
-                            <div class="input-group input-spinner  ">
+                            <div class="input-group input-spinner quantity-product">
                                 <input type="button" value="-" class="button-minus  btn  btn-sm " data-field="quantity">
                                 <input type="number" step="1" max="10" value="1" name="quantity"
                                        class="quantity-field form-control-sm form-input   ">
@@ -70,10 +70,10 @@
                             <div class="col-xxl-4 col-lg-4 col-md-5 col-5 d-grid">
                                 <!-- button -->
                                 <!-- btn -->
-                                <button type="button" class="btn btn-primary"><i
-                                            class="feather-icon icon-shopping-bag me-2"></i>Add to
-                                    cart
-                                </button>
+                                <button type="button"
+                                        data-product="<?= str_replace('"', "'", json_encode($product)) ?>"
+                                        class="btn btn-primary add-to-cart"><i
+                                            class="feather-icon icon-shopping-bag me-2"></i>Mua ngay</button>
                             </div>
                         </div>
                         <!-- hr -->

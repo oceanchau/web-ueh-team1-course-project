@@ -11,7 +11,7 @@ class ShopController extends BaseController
 
     function __construct()
     {
-        $this->levels[] = new Level('pages', 'home', 'Home');
+        $this->levels[] = new Level('pages', 'home', 'Trang chủ');
         $this->levels[] = new Level('shop', 'index', 'Shop');
 
         $this->folder = 'shop';
@@ -41,21 +41,49 @@ class ShopController extends BaseController
             'products' => $products,
             'categories' => $categories,
             'categoryName' => $categoryName,
-            'levels' => $this->levels);
+            'levels' => $this->levels
+        );
         $this->render('index', $data);
     }
 
     public function checkout()
     {
+        echo $_GET['id'];
         $data = array(
-            'levels' => $this->levels);
+            'levels' => $this->levels
+        );
         $this->render('checkout', $data);
+    }
+
+    public function placeOrder()
+    {
+        if (self::getCurrentUser() === null) {
+            echo 'LOGIN';
+        } else {
+            echo 'SUCCESSFULLY';
+        }
+    }
+
+    public function checkoutOrder()
+    {
+        if (true) {
+            $response = '';
+            $data = json_decode($_POST['data']);
+            for ($i = 0; $i < count($data); $i++) {
+                $response += $data[$i]->name;
+            }
+            echo count($data);
+        } else {
+            echo 'FAIL';
+        }
     }
 
     public function single()
     {
         $product = Product::find($_GET['code']);
-        $relatedProduct = Product::all(new ProductFilter())->getData();
+        $filter = (new ProductFilter())
+            ->setLimit(5);
+        $relatedProduct = Product::all($filter)->getData();
         $categories = Category::all();
         $categoryName = $this->getCategoryName($product->getCategoryId(), $categories);
         $this->levels[] = (new Level('shop', 'index', $categoryName))
@@ -66,7 +94,8 @@ class ShopController extends BaseController
             'relatedProduct' => $relatedProduct,
             'categories' => $categories,
             'categoryName' => $categoryName,
-            'levels' => $this->levels);
+            'levels' => $this->levels
+        );
 
         $this->render('single', $data);
     }
@@ -86,5 +115,31 @@ class ShopController extends BaseController
             }
         }
         return $categoryName;
+    }
+
+    static function getNext($page): int
+    {
+        return ++$page;
+    }
+
+    static function getPrev($page): int
+    {
+        return --$page;
+    }
+
+    static function getQueryPaging($param): string
+    {
+        $queryParam = '';
+        foreach ($param as $key => $value) {
+            if ($key === 'page') {
+                continue;
+            }
+            if ($queryParam === '') {
+                $queryParam .= $key . '=' . $value;
+            } else {
+                $queryParam .= '&' . $key . '=' . $value;
+            }
+        }
+        return $queryParam;
     }
 }

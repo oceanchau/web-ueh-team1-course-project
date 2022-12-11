@@ -45,7 +45,7 @@ if (isset($_POST['submitAddress'])) {
                             echo '
                             <div class="d-flex justify-content-between mb-6">
                                 <!-- heading -->
-                                <h2 class="mb-0">Address</h2>
+                                <h2 class="mb-0">Địa chỉ</h2>
                                 <!-- button -->
                                 <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
                                    data-bs-target="#addAddressModal">Add a
@@ -67,7 +67,7 @@ if (isset($_POST['submitAddress'])) {
                                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                                        id="homeRadio" checked>
                                                 <label class="form-check-label text-dark fw-semi-bold" for="homeRadio">
-                                                    Home
+                                                    Trang chủ
                                                 </label>
                                             </div>
                                             <!-- address -->
@@ -135,7 +135,7 @@ if (count($shippingAddress) === 0) {
                     <div class="d-flex justify-content-between mb-5">
                         <div>
                             <!-- heading -->
-                            <h5 class="mb-1" id="addAddressModalLabel">New Shipping Address</h5>
+                            <h5 class="mb-1" id="addAddressModalLabel">New Shipping Địa chỉ</h5>
                             <p class="small mb-0">Add new shipping address for your order delivery.</p>
                         </div>
                         <div>
@@ -174,7 +174,7 @@ if (count($shippingAddress) === 0) {
                         <!-- col -->
                         <div class="col-12 text-end">
                             <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary" name="submitAddress" type="submit">Save Address</button>
+                            <button class="btn btn-primary" name="submitAddress" type="submit">Save Địa chỉ</button>
                         </div>
                     </form>
                 </div>
@@ -198,7 +198,7 @@ if (count($shippingAddress) === 0) {
             <!-- nav item -->
             <li class="nav-item">
                 <a class="nav-link " aria-current="page" href="account-orders.html"><i
-                            class="feather-icon icon-shopping-bag me-2"></i>Your Orders</a>
+                            class="feather-icon icon-shopping-bag me-2"></i>Đơn hàng của bạn</a>
             </li>
             <!-- nav item -->
             <li class="nav-item">
@@ -207,7 +207,7 @@ if (count($shippingAddress) === 0) {
             <!-- nav item -->
             <li class="nav-item">
                 <a class="nav-link active" href="account-address.html"><i
-                            class="feather-icon icon-map-pin me-2"></i>Address</a>
+                            class="feather-icon icon-map-pin me-2"></i>Địa chỉ</a>
             </li>
             <!-- nav item -->
             <li class="nav-item">
@@ -226,7 +226,7 @@ if (count($shippingAddress) === 0) {
             <ul class="nav flex-column nav-pills nav-pills-dark">
                 <!-- nav item -->
                 <li class="nav-item">
-                    <a class="nav-link " href="../index.html"><i class="feather-icon icon-log-out me-2"></i>Log out</a>
+                    <a class="nav-link " href="../index.html"><i class="feather-icon icon-log-out me-2"></i>Đăng xuất</a>
                 </li>
 
             </ul>

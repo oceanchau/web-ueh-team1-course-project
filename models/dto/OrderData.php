@@ -9,6 +9,7 @@ class OrderData
     private $productName;
     private $img;
     private $quantity;
+    private $username;
 
     public function __construct($item)
     {
@@ -145,6 +146,24 @@ class OrderData
     public function setQuantity(mixed $quantity): OrderData
     {
         $this->quantity = $quantity;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param mixed $username
+     * @return OrderData
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
         return $this;
     }
 }

@@ -13,11 +13,11 @@ if (isset($_POST['submit'])) {
 <div class="border-bottom shadow-sm">
     <nav class="navbar navbar-light py-2">
         <div class="container justify-content-center justify-content-lg-between">
-            <a class="navbar-brand" href="/">
-                <img src="assets/images/logo/freshcart-logo.svg" alt="" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="/?">
+                <img width="160" src="assets/images/logo/logo.png" alt="" class="d-inline-block align-text-top">
             </a>
             <span class="navbar-text">
-        Don’t have an account? <a href="?controller=pages&action=signUp">Sign Up</a>
+        Chưa có tài khoản? <a href="/?controller=pages&action=signUp">Đăng ký</a>
       </span>
         </div>
     </nav>
@@ -37,8 +37,8 @@ if (isset($_POST['submit'])) {
                 <!-- col -->
                 <div class="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
                     <div class="mb-lg-9 mb-5">
-                        <h1 class="mb-1 h2 fw-bold">Sign in to LightCart</h1>
-                        <p>Welcome back to LightCart! Enter your email to get started.</p>
+                        <h1 class="mb-1 h2 fw-bold">Đăng nhập UEH COMMUNITY SHOP</h1>
+                        <p>Chào mừng quay trở lại UEH COMMUNITY SHOP, vui lòng đăng nhập để bắt đầu.</p>
                     </div>
 
                     <form method="post">
@@ -58,10 +58,10 @@ if (isset($_POST['submit'])) {
                             <?= $error ? '<div class="text-danger">' . $error . '</div>' : '' ?>
                             <!-- btn -->
                             <div class="col-12 d-grid">
-                                <button type="submit" name="submit" class="btn btn-primary">Sign In</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Đăng nhập</button>
                             </div>
                             <!-- link -->
-                            <div>Don’t have an account? <a href="?controller=pages&action=signUp"> Sign Up</a></div>
+                            <div>Chưa có tài khoản? <a href="/?controller=pages&action=signUp"> Đăng ký</a></div>
                         </div>
                     </form>
                 </div>

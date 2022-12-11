@@ -14,9 +14,13 @@ class PagesController extends BaseController
 
     public function home()
     {
-        $products = Product::all(new ProductFilter())->getData();
+        $filter = (new ProductFilter())
+            ->setLimit(5);
+        $products = Product::all($filter)->getData();
+        $filter->setLimit(3);
+        $productSaleOff = Product::all($filter)->getData();
         $categories = Category::all();
-        $data = array('products' => $products, 'categories' => $categories);
+        $data = array('productSaleOff' => $productSaleOff, 'products' => $products, 'categories' => $categories);
         $this->render('home', $data);
     }
 

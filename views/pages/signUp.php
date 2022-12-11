@@ -17,11 +17,11 @@ if (isset($_POST['submitSignUp'])) {
 <div class="border-bottom shadow-sm">
     <nav class="navbar navbar-light py-2">
         <div class="container justify-content-center justify-content-lg-between">
-            <a class="navbar-brand" href="/">
-                <img src="assets/images/logo/freshcart-logo.svg" alt="" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="/?">
+                <img width="160" src="assets/images/logo/logo.png" alt="" class="d-inline-block align-text-top">
             </a>
             <span class="navbar-text">
-        Already have an account? <a href="?controller=pages&action=signIn">Sign in</a>
+        Đã có tài khoản? <a href="/?controller=pages&action=signIn">Đăng nhập</a>
       </span>
         </div>
     </nav>
@@ -43,15 +43,15 @@ if (isset($_POST['submitSignUp'])) {
                 <!-- col -->
                 <div class="col-12 col-md-6 offset-lg-1 col-lg-4 order-lg-2 order-1">
                     <div class="mb-lg-9 mb-5">
-                        <h1 class="mb-1 h2 fw-bold">Get Start Shopping</h1>
-                        <p>Welcome to LightCart! Enter your email to get started.</p>
+                        <h1 class="mb-1 h2 fw-bold">Đăng ký nhận ưu đãi</h1>
+                        <p>Chào mừng đên với UEH COMMUNITY SHOP! Nhập thông tin đăng ký để bắt đầu.</p>
                     </div>
                     <!-- form -->
                     <form method="post">
                         <div class="row g-3">
                             <div class="col-12">
-                                <label for="fullName" class="form-label">Name</label>
-                                <input type="text" class="form-control" name="fullName" placeholder="Enter Your Name"
+                                <label for="fullName" class="form-label">Tên</label>
+                                <input type="text" class="form-control" name="fullName" placeholder="Nhập tên"
                                        required="">
                             </div>
                             <div class="col-12">
@@ -60,20 +60,20 @@ if (isset($_POST['submitSignUp'])) {
                                                      placeholder="Email" required>
                             </div>
                             <div class="col-12">
-                                <label for="inputEmail4" class="form-label">Password</label>
+                                <label for="inputEmail4" class="form-label">Mật khẩu</label>
                                 <!-- input --><input type="password" class="form-control" name="inputPassword4"
-                                                     placeholder="Password"
+                                                     placeholder="Nhập mật khẩu"
                                                      required>
                             </div>
                             <?= $error ? '<div class="text-danger">'.$error.'</div>' : '' ?>
                             <!-- btn -->
                             <div class="col-12 d-grid">
-                                <button type="submit" name="submitSignUp" class="btn btn-primary">Register</button>
+                                <button type="submit" name="submitSignUp" class="btn btn-primary">Đăng ký</button>
                             </div>
 
                             <!-- text -->
-                            <p><small>By continuing, you agree to our <a href="#!"> Terms of Service</a> & <a href="#!">Privacy
-                                        Policy</a></small></p>
+                            <p><small>Để tiếp tục, vui lòng xem và nhấn <a href="#!"> điều khoản</a> & <a href="#!">chính sách
+                                        bảo mật</a></small></p>
                         </div>
                     </form>
                 </div>
