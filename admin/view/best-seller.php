@@ -1,3 +1,8 @@
+<?php
+require_once "models/transaction_model.php";
+$transaction = new Transaction();
+$transactions = $transaction->getBetSeller();
+?>
 <div class="card h-100">
     <div class="card-header d-flex align-items-center justify-content-between">
         <h5 class="card-title m-0 me-2">Best Seller</h5>
@@ -15,34 +20,30 @@
     </div>
     <div class="card-body">
         <ul class="p-0 m-0">
+            <?php
+            foreach ($transactions as $key => $value) {
+            ?>
             <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
                     <span class="avatar-initial rounded bg-label-primary"><i class="bx bx-mobile-alt"></i></span>
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                     <div class="me-2">
-                        <h6 class="mb-0">Electronic</h6>
-                        <small class="text-muted">Mobile, Earbuds, TV</small>
+                        <h6 class="mb-0">
+                            <?php echo ($value['name']); ?>
+                        </h6>
+                        <small class="text-muted">Tổng số lượng:
+                            <?php echo $value['total'] . " cái"; ?>
+                        </small>
                     </div>
                     <div class="user-progress">
-                        <small class="fw-semibold">82.5k</small>
+                        <small class="fw-semibold">
+                            <?php echo number_format($value['total'] * $value['price'], 0, ".", ",") . " VND"; ?>
+                        </small>
                     </div>
                 </div>
             </li>
-            <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                    <span class="avatar-initial rounded bg-label-success"><i class="bx bx-closet"></i></span>
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                    <div class="me-2">
-                        <h6 class="mb-0">Fashion</h6>
-                        <small class="text-muted">T-shirt, Jeans, Shoes</small>
-                    </div>
-                    <div class="user-progress">
-                        <small class="fw-semibold">23.8k</small>
-                    </div>
-                </div>
-            </li>
+            <?php } ?>
         </ul>
     </div>
 </div>

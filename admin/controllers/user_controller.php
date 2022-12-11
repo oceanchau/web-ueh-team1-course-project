@@ -1,6 +1,14 @@
 <?php
 session_start();
-echo $_POST['email'];
-$_SESSION['user'] = "true";
-header('Location: ../index.php');
+$error = '';
+if (isset($_POST['email'])) {
+    if ($_POST['email'] != "admin@example.com" || $_POST['password'] != "123456") {
+        $error = "email or password is incorrect";
+        header('Location: ../view/login.php');
+    } else {
+        $_SESSION['user'] = "true";
+        header('Location: ../index.php');
+    }
+}
+
 ?>

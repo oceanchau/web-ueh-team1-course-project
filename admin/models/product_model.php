@@ -15,7 +15,6 @@ class Product
             return [];
         }
         return $result->fetchAll(PDO::FETCH_ASSOC);
-        ;
     }
 
     public function getProductById($id)
@@ -27,7 +26,6 @@ class Product
             return null;
         }
         return $result->fetchAll(PDO::FETCH_ASSOC);
-        ;
     }
     public function insertProduct($name, $imageUrl, $description, $price, $amount, $code)
     {

@@ -1,9 +1,10 @@
-<?php 
-require_once "models/transaction_model.php"; 
-$db = new Transaction();
+<?php
+require_once "models/transaction_model.php";
+$transaction = new Transaction();
 $pageNumber = getParams("pageNumber");
 $limit = getParams("limit");
-$total_pages = ceil(count([]) / $limit);
+$transactions = $transaction->getTransactions();
+$total_pages = ceil(count($transactions) / $limit);
 
 
 ?>
@@ -40,14 +41,14 @@ $total_pages = ceil(count([]) / $limit);
             <tbody>
                 <?php
                 $variable = array("success", "primary", "danger", "warning");
-                foreach ($variable as $key => $value) {
+                foreach ($transactions as $key => $value) {
                 ?>
                 <tr>
                     <th scope="row">1</th>
                     <td>
                         <div class="me-2 d-flex">
                             <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-<?php echo $value; ?>"><i
+                                <span class="avatar-initial rounded bg-label-<?php echo $value['status']; ?>"><i
                                         class='bx bxs-shopping-bag-alt'></i></span>
                             </div>
                             <div class="div">
@@ -58,17 +59,23 @@ $total_pages = ceil(count([]) / $limit);
                     </td>
                     <td>
                         <div class="user-progress">
-                            <small class="fw-semibold"> 10</small>
+                            <small class="fw-semibold">
+                                <?php echo $value['amount']; ?>
+                            </small>
                         </div>
                     </td>
                     <td>
                         <div class="user-progress">
-                            <small class="fw-semibold"> 20000</small>
+                            <small class="fw-semibold">
+                                <?php echo $value['price']; ?>
+                            </small>
                         </div>
                     </td>
                     <td>
                         <div class="user-progress">
-                            <small class="fw-semibold"> 2000000</small>
+                            <small class="fw-semibold">
+                                <?php echo $value['amount'] * $value['price']; ?>
+                            </small>
                         </div>
                     </td>
                     <td>
@@ -83,7 +90,10 @@ $total_pages = ceil(count([]) / $limit);
                     </td>
                     <td>
                         <div class="user-progress">
-                            <small class="fw-semibold text-<?php echo $value; ?>"><?php echo $value; ?></small>
+                            <small
+                                class="fw-semibold text-<?php echo $value['status'] !== 'success' ? 'danger' : $value['status']; ?>">
+                                <?php echo $value['status']; ?>
+                            </small>
                         </div>
                     </td>
 
