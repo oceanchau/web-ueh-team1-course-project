@@ -20,7 +20,7 @@
             </li>
             <!-- nav item -->
             <li class="nav-item">
-                <a class="nav-link " href=""/?"><i class="feather-icon icon-log-out me-2"></i>Đăng xuất</a>
+                <a class="nav-link " href="/?"><i class="feather-icon icon-log-out me-2"></i>Đăng xuất</a>
             </li>
 
         </ul>
@@ -54,7 +54,7 @@
             <ul class="nav flex-column nav-pills nav-pills-dark">
                 <!-- nav item -->
                 <li class="nav-item">
-                    <a class="nav-link " href=""/?"><i class="feather-icon icon-log-out me-2"></i>Đăng xuất</a>
+                    <a class="nav-link " href="/?"><i class="feather-icon icon-log-out me-2"></i>Đăng xuất</a>
                 </li>
 
             </ul>

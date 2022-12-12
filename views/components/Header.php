@@ -12,12 +12,12 @@
         <div class="container">
             <div class="row w-100 align-items-center g-lg-2 g-0">
                 <div class="col-xxl-2 col-lg-3">
-                    <a class="navbar-brand d-none d-lg-block" href=""/?">
+                    <a class="navbar-brand d-none d-lg-block" href="/?">
                         <img width="160" src="assets/images/logo/logo.png" alt="eCommerce">
 
                     </a>
                     <div class="d-flex justify-content-between w-100 d-lg-none">
-                        <a class="navbar-brand" href=""/?">
+                        <a class="navbar-brand" href="/?">
                             <img width="160" src="assets/images/logo/logo.png" alt="eCommerce">
 
                         </a>
@@ -94,12 +94,12 @@
                 </div>
                 <div class="col-xxl-6 col-lg-5 d-none d-lg-block">
 
-                    <form method="get">
+                    <form id="submitSearch" method="get">
                         <div class="input-group ">
                             <input class="form-control rounded-3" type="search" placeholder="Tìm kiếm"
                                    name="search" id="search">
                             <span class="input-group-append">
-                <button class="btn bg-white border border-start-0 ms-n10" id="submitSearch" type="submit">
+                <button class="btn bg-white border border-start-0 ms-n10" type="submit">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                        class="feather feather-search">
@@ -206,7 +206,7 @@
                 <div class="offcanvas offcanvas-start p-4 p-lg-0" id="navbar-default">
 
                     <div class="d-flex justify-content-between align-items-center mb-2 d-block d-lg-none">
-                        <a href=""/?"><img width="160" src="assets/images/logo/logo.png"
+                        <a href="/?"><img width="160" src="assets/images/logo/logo.png"
                                                     alt="eCommerce"></a>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>

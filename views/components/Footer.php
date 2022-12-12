@@ -99,8 +99,8 @@
         <div class="border-top py-4">
             <div class="row align-items-center">
                 <div class="col-md-6"><span class="small text-muted">Bản quyền thuộc về <a
-                                href=""/?">Nhóm 1 @ UEH</a> . Cung cấp bởi <a
-                                href=""/?">Oceanchau</a>.</span></div>
+                                href="/?">Nhóm 1 @ UEH</a> . Cung cấp bởi <a
+                                href="/?">Oceanchau</a>.</span></div>
                 <div class="col-md-6">
                     <ul class="list-inline text-md-end mb-0 small mt-3 mt-md-0">
                         <li class="list-inline-item text-muted">Follow UEH COMMUNITY SHOP on</li>

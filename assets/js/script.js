@@ -22,6 +22,16 @@ function handleCheckout(e) {
     });
 }
 
+$(document).ready(function(){
+    $("#submitSearch").submit(function (t) {
+        t.preventDefault();
+        const search = $("#search").val();
+        if (search) {
+            window.location = "/?controller=shop&search=" + search;
+        }
+    });
+});
+
 (function () {
     var t = window.location + "",
         e = t.replace(
@@ -242,15 +252,6 @@ function handleCheckout(e) {
                     $(this).addClass("active");
             }))
         )
-
-        $("#submitSearch").click(function (t) {
-            t.preventDefault();
-            const search = $("#search").val();
-            if (search) {
-                window.location = "/?controller=shop&search=" + search;
-            }
-        });
-
         $("#submitLogin").click(function (t) {
             t.preventDefault();
             const inputEmail4 = $("#inputEmail4").val();
