@@ -20,7 +20,7 @@
                      style="background: url(assets/images/slider/slider-2.jpg)no-repeat; background-size: cover; border-radius: .5rem; background-position: center;">
                     <div class="ps-lg-12 py-lg-16 col-xxl-5 col-md-7 py-14 px-8 text-xs-center">
                         <span class="badge text-bg-warning">Opening Sale Discount 50%</span>
-                        <h2 class="text-light display-5 fw-bold mt-4">INNO SHOP Community<br> là startup <span
+                        <h2 class="text-light display-5 fw-bold mt-4">INNO SHOP Community<br> là cửa hàng startup <span
                                     class="text-primary">thuộc UEH</span></h2>
                         <p class="text-light lead"><span class="badge text-bg-primary">INNO SHOP là cộng đồng vườn ương đổi mới sáng tạo</span>
                         </p>
