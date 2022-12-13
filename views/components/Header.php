@@ -549,7 +549,7 @@
 </div>
 
 <div class="toast-container position-fixed top-0 end-0 p-3">
-    <div id="basicToast" class="toast" role="alert" aria-live="assertive" data-bs-delay="300" aria-atomic="true">
+    <div id="basicToast" class="toast" role="alert" aria-live="assertive" data-bs-delay="500" aria-atomic="true">
         <div class="toast-header h4">
             <i class="feather-icon icon-check text-success align-content-center"></i>
         </div>
