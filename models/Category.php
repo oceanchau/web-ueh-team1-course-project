@@ -2,19 +2,16 @@
 class Category {
     public $id;
     public $name;
-    public $active;
     public $img;
 
     /**
      * @param $id
      * @param $name
-     * @param $active
      */
-    public function __construct($id, $name, $active, $img)
+    public function __construct($id, $name, $img)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->active = $active;
         $this->img = $img;
     }
 
@@ -22,10 +19,10 @@ class Category {
     {
         $list = [];
         $db = DatabaseConfig::getInstance();
-        $req = $db->query('SELECT * FROM tbl_categories WHERE active = 1');
+        $req = $db->query('SELECT * FROM tbl_categories');
 
         foreach ($req->fetchAll() as $item) {
-            $list[] = new Category($item['id'], $item['name'], $item['active'], $item['img']);
+            $list[] = new Category($item['id'], $item['name'], $item['img']);
         }
 
         return $list;
