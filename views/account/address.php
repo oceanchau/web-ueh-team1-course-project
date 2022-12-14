@@ -48,8 +48,7 @@ if (isset($_POST['submitAddress'])) {
                                 <h2 class="mb-0">Địa chỉ</h2>
                                 <!-- button -->
                                 <a href="#" class="btn btn-outline-primary" data-bs-toggle="modal"
-                                   data-bs-target="#addAddressModal">Add a
-                                    new address </a>
+                                   data-bs-target="#addAddressModal">Thêm địa chỉ</a>
                             </div>
                             ';
                         }
@@ -67,7 +66,7 @@ if (isset($_POST['submitAddress'])) {
                                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
                                                        id="homeRadio" checked>
                                                 <label class="form-check-label text-dark fw-semi-bold" for="homeRadio">
-                                                    Trang chủ
+                                                    Nhà
                                                 </label>
                                             </div>
                                             <!-- address -->

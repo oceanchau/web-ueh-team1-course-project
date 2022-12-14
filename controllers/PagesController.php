@@ -26,7 +26,6 @@ class PagesController extends BaseController
 
     public function about()
     {
-        // TODO about
         $categories = Category::all();
         $data = array('categories' => $categories);
         $this->render('about', $data);
@@ -34,7 +33,6 @@ class PagesController extends BaseController
 
     public function contact()
     {
-        // TODO contact
         $categories = Category::all();
         $data = array('categories' => $categories);
         $this->render('contact', $data);

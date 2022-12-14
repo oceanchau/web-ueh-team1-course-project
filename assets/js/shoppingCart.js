@@ -1,7 +1,9 @@
 const shoppingCart = (function () {
     let cart = [];
+    let order = [];
 
-    function Item(name, price, img, code, count) {
+    function Item(id, name, price, img, code, count) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.code = code;
@@ -23,7 +25,7 @@ const shoppingCart = (function () {
 
     let exportObj = {};
 
-    exportObj.addItemToCart = (name, price, img, code, count) => {
+    exportObj.addItemToCart = (id, name, price, img, code, count) => {
         for (let item in cart) {
             if (cart[item].code === code) {
                 const quantity = cart[item].count;
@@ -33,7 +35,7 @@ const shoppingCart = (function () {
             }
         }
 
-        const item = new Item(name, price, img, code, count);
+        const item = new Item(id, name, price, img, code, count);
         cart.push(item);
         saveCart(cart);
     };
@@ -100,7 +102,12 @@ const shoppingCart = (function () {
     };
 
     exportObj.listOrder = function () {
-        return cart;
+        const totalCart = this.totalCart();
+        const listCart = this.listCart();
+        return {
+            cart: listCart,
+            amount: totalCart
+        };
     };
 
     return exportObj;
@@ -184,8 +191,8 @@ $(".add-to-cart").click(function (t) {
         new bootstrap.Toast($('#basicToast')).show();
         product = product.replaceAll("'", '"');
 
-        const {name, price, img, code} = JSON.parse(product);
-        shoppingCart.addItemToCart(name, price, img, code, count);
+        const {id, name, price, img, code} = JSON.parse(product);
+        shoppingCart.addItemToCart(id, name, price, img, code, count);
         displayCart();
     })(t);
 });

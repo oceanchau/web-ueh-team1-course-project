@@ -37,8 +37,8 @@
 <script src="assets/libs/nouislider/dist/nouislider.min.js"></script>
 <script src="assets/libs/tiny-slider/dist/min/tiny-slider.js"></script>
 <!-- Theme JS -->
-<script src="assets/js/script.js"></script>
 <script src="assets/js/shoppingCart.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 
 </html>

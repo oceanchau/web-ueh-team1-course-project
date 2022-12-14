@@ -8,16 +8,16 @@ function zoom(t) {
 }
 
 function handleCheckout(e) {
-    console.log("Xin chao cac ban");
     const listOrder = shoppingCart.listOrder();
+
     $.ajax({
         url: "/?controller=shop&action=checkoutOrder",
         type: "post",
         data: {data: JSON.stringify(listOrder)},
     }).then((data) => {
-        console.log(data);
         if (data && data !== "FAIL") {
-            //   window.location = "/?controller=shop&action=checkout&id=" + data;
+            shoppingCart.clearCart();
+            window.location = "/?controller=shop&action=checkout&id=" + data;
         }
     });
 }
@@ -174,18 +174,25 @@ $("#submitSearch").submit(function (t) {
 
     $("#submitPlaceOrder").click(function (t) {
         t.preventDefault();
-
+        let searchParams = new URLSearchParams(window.location.search);
+        const notes = $('#DeliveryInstructions').val();
+        const payment = $('input[name="flexRadioPayment"]:checked').val();
         $.ajax({
             url: "/?controller=shop&action=placeOrder",
             type: "post",
-            data: {},
+            data: {
+                id: searchParams.get('id'),
+                payment,
+                notes
+            },
             success: function (response) {
                 let error = "";
                 if (response === "LOGIN") {
                     $("#userModal").modal("show");
                     $("#userModalLabel").html("Đăng nhập trước khi thanh toán");
                 } else {
-                    prompt("Đặt hàng thành công.");
+                    alert("Đặt hàng thành công.");
+                    window.location = "/?controller=account&action=orders"
                 }
             },
         });
