@@ -28,7 +28,7 @@ class Order
             $db->commit();
         } catch (Exception $e) {
             $db->rollBack();
-            throw new ErrorException("Lỗi hệ thống".$e);
+            throw new ErrorException("Lỗi hệ thống" . $e);
         }
     }
 
@@ -64,7 +64,7 @@ class Order
             return $id;
         } catch (Exception $e) {
             $db->rollBack();
-            throw new ErrorException("Lỗi hệ thống".$e);
+            throw new ErrorException("Lỗi hệ thống" . $e);
         }
     }
 
@@ -105,19 +105,25 @@ class Order
         return $list;
     }
 
-    static function find($id): Order
+    static function find($id): array
     {
         $db = DatabaseConfig::getInstance();
-        $req = $db->prepare('SELECT * FROM tbl_orders WHERE id = :id');
-        $req->bindValue('id', $id);
-        $req->execute();
+        $req = $db->prepare('SELECT o.id, p.name, p.img, o.createdAt, op.quantity, o.status, op.amount FROM tbl_orders o 
+                    INNER JOIN tbl_order_products op 
+                    ON o.id = op.orderId
+                    INNER JOIN tbl_products p
+                    ON p.id = op.productId
+                    INNER join tbl_users u
+                    ON u.username = o.username
+                    WHERE o.id = :id
+                    ORDER BY o.id DESC');
+        $req->execute(array('id' => $id));
+        $list = [];
+        foreach ($req->fetchAll() as $item) {
+            $list[] = new OrderData($item);
+        }
 
-        $item = $req->fetch();
-
-        return (new Order())
-            ->setId($item['id'])
-            ->setStatus($item['status'])
-            ->setCreatedAt($item['createdAt']);
+        return $list;
     }
 
     /**

@@ -50,12 +50,14 @@ class ShopController extends BaseController
 
     public function checkout()
     {
+        $orderDetails = Order::find($_GET['id']);
         $categories = Category::all();
         $shippingAddress = ShippingAddress::find(self::getCurrentUser());
 
         $data = array(
             'levels' => $this->levels,
             'categories' => $categories,
+            'orderDetails' => $orderDetails,
             'shippingAddress' => $shippingAddress
         );
         $this->render('checkout', $data);

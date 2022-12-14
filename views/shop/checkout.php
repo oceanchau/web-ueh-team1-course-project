@@ -231,36 +231,38 @@
 
                     </div>
 
-                    <div class="col-12 col-md-12 offset-lg-1 col-lg-4">
+                    <div class="col-12 col-md-12 col-lg-5">
                         <div class="mt-4 mt-lg-0">
                             <div class="card shadow-sm">
                                 <h5 class="px-6 py-4 bg-transparent mb-0">Chi tiết hóa đơn</h5>
                                 <ul class="list-group order-details list-group-flush">
                                     <?php
-                                    //foreach ()
-                                    ?>
-                                    <!-- list group item -->
+                                    $totalAmount = 0;
+                                    foreach ($orderDetails as $item) {
+                                        $totalAmount += $item->getAmount();
+                                        //$item = new OrderData();
+                                        echo '<!-- list group item -->
                                     <li class="list-group-item px-4 py-3">
                                         <div class="row align-items-center">
                                             <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-1.jpg" alt="Ecommerce"
+                                                <img src="assets/images/products/' . $item->getImg()[0] . '" alt="Ecommerce"
                                                      class="img-fluid"></div>
                                             <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">Haldiram's Sev Bhujia</h6>
-                                                <span><small class="text-muted">.98 / lb</small></span>
-
+                                                <h6 class="mb-0">'.$item->getProductName().'</h6>
                                             </div>
                                             <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
+                                                <span>'.$item->getQuantity().'</span>
 
                                             </div>
                                             <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">đ5.00</span>
-
+                                                <span class="fw-bold">đ' . number_format($item->getAmount(), 0, '', '.') . '</span>
                                             </div>
                                         </div>
 
-                                    </li>
+                                    </li>';
+                                    }
+                                    ?>
+
                                     <!-- list group item -->
                                     <li class="list-group-item px-4 py-3">
                                         <div class="d-flex align-items-center justify-content-between fw-bold">
@@ -268,7 +270,7 @@
                                                 Tổng tiền
                                             </div>
                                             <div>
-                                                đ73.00
+                                                đ<?= $totalAmount ?>
 
 
                                             </div>
