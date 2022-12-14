@@ -1,8 +1,3 @@
-<?php
-require_once "models/transaction_model.php";
-$transaction = new Transaction();
-$transactions = $transaction->getBetSeller();
-?>
 <div class="card h-100">
     <div class="card-header d-flex align-items-center justify-content-between">
         <h5 class="card-title m-0 me-2">Best Seller</h5>
@@ -21,7 +16,7 @@ $transactions = $transaction->getBetSeller();
     <div class="card-body">
         <ul class="p-0 m-0">
             <?php
-            foreach ($transactions as $key => $value) {
+            foreach ($orders as $key => $value) {
             ?>
             <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
@@ -30,7 +25,7 @@ $transactions = $transaction->getBetSeller();
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                     <div class="me-2">
                         <h6 class="mb-0">
-                            <?php echo ($value['name']); ?>
+                            <?php echo ($value['productId']); ?>
                         </h6>
                         <small class="text-muted">Tổng số lượng:
                             <?php echo $value['total'] . " cái"; ?>
@@ -38,7 +33,7 @@ $transactions = $transaction->getBetSeller();
                     </div>
                     <div class="user-progress">
                         <small class="fw-semibold">
-                            <?php echo number_format($value['total'] * $value['price'], 0, ".", ",") . " VND"; ?>
+                            <?php echo number_format($value['total'] * $value['amount'], 0, ".", ",") . " VND"; ?>
                         </small>
                     </div>
                 </div>

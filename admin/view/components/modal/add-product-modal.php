@@ -1,6 +1,6 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="./?p=products&pageNumber=1&limit=20" method="post">
+        <form  method="post">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
@@ -18,8 +18,8 @@
                             id="exampleInputPassword1">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Amount</label>
-                        <input type="number" class="form-control" name="amount" placeholder="0" id="exampleInputPassword1">
+                        <label for="exampleInputPassword1" class="form-label">Status</label>
+                        <input type="text" class="form-control" name="status" placeholder="0" id="exampleInputPassword1">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Price</label>

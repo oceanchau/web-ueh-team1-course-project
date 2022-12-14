@@ -21,7 +21,7 @@ $current_Product = $product->getProductById( $_GET['id'])[0];
         </form>
     </div>
 </div>
-<form method="post" action="?p=products&pageNumber=1&limit=20">
+<form method="post">
     <div class="mb-3">
         <label for="Name" class="form-label">Name</label>
         <input type="text" class="form-control" name="name" value="<?php echo $current_Product['name']; ?>" id="Name" required aria-describedby="emailHelp">
@@ -32,8 +32,8 @@ $current_Product = $product->getProductById( $_GET['id'])[0];
         <input type="text" class="form-control" name="code" value="<?php echo $current_Product['code']; ?>" placeholder="0" required id="code">
     </div>
     <div class="mb-3">
-        <label for="Amount" class="form-label">Amount</label>
-        <input type="number" class="form-control" name="amount" value="<?php echo $current_Product['amount']; ?>" placeholder="0" required id="Amount">
+        <label for="Amount" class="form-label">Status</label>
+        <input type="text" class="form-control" name="amount" value="<?php echo $current_Product['status']; ?>" placeholder="0" required id="Amount">
     </div>
     <div class="mb-3">
         <label for="Price" class="form-label">Price</label>
@@ -41,13 +41,13 @@ $current_Product = $product->getProductById( $_GET['id'])[0];
     </div>
     <div class="mb-3">
         <label for="imageUrl" class="form-label">Image Url</label>
-        <input type="text" class="form-control" value="<?php echo $current_Product['image']; ?>" name="imageUrl" placeholder="https://" id="imageUrl">
-        <img class="mt-2 w-50" src="<?php echo $current_Product['image']; ?>" id="reviewImage"  alt="review"  />
+        <input type="text" class="form-control" value="<?php echo $current_Product['img']; ?>" name="imageUrl" placeholder="https://" id="imageUrl">
+        <img class="mt-2 w-50" src="<?php echo $current_Product['img']; ?>" id="reviewImage"  alt="review"  />
     </div>
     <div class="mb-3">
         <label for="Description" class="form-label">Description</label>
         <textarea class="form-control" name="description" id="Description"  cols="30" rows="10">
-            <?php echo $current_Product['description']; ?>
+            <?php echo $current_Product['detail']; ?>
         </textarea>
     </div>
     <input type="hidden" name="id" value=" <?php echo $current_Product['id']; ?>">

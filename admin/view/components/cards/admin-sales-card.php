@@ -6,6 +6,7 @@
             </div>
         </div>
         <span class="fw-semibold d-block mb-2">Sales</span>
-        <h3 class="card-title text-nowrap mb-1">$4,679</h3>
+        <!-- <h5 class="card-title text-nowrap mb-1"><?php echo getTotalMoneySales(); ?></h5> -->
+        <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> <?php echo getTotalMoneySales(); ?></small>
     </div>
 </div>

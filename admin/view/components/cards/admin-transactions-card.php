@@ -16,7 +16,9 @@
             </div>
         </div>
         <span class="fw-semibold d-block mb-1">Transactions</span>
-        <h3 class="card-title mb-2">$14,857</h3>
-        <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i> +28.14%</small>
+        <!-- <h5 class="card-title mb-2"></h5> -->
+        <small class="text-success fw-semibold"><i class="bx bx-up-arrow-alt"></i>
+            <?php echo getTotalMoneyTransactions(); ?>
+        </small>
     </div>
 </div>

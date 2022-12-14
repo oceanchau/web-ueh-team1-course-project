@@ -5,7 +5,7 @@ define(
     array(
         array("best-seller", "Best Seller"),
         array("products", "Products"),
-        array("transactions", "Transactions")
+        array("orders", "Orders")
     )
 );
 
