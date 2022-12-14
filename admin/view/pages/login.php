@@ -1,14 +1,4 @@
-<?php
-$error = '';
-if (isset($_POST['email'])) {
-    if ($_POST['email'] != "admin@example.com" || $_POST['password'] != "123456") {
-        $error = "email or password is incorrect";
-    } else {
-        $_SESSION['user'] = "1";
-        header('Location: ./');
-    }
-}
-?>
+
 <section class="gradient-custom">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">

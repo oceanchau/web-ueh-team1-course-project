@@ -8,9 +8,9 @@ require "./helpers/const.php";
 session_start();
 
 if (!isset($_SESSION['user'])) {
+  require_once('./controllers/authen_controller.php');
   require_once("view/layout/authenLayout.php");
   require_once('view/pages/login.php');
-
 } else {
 
   $pages = getPages();

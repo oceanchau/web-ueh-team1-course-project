@@ -19,10 +19,8 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Amout</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Total</th>
+                    <th scope="col">UserName</th>
+                    <th scope="col">Amount</th>
                     <th scope="col">OrderAt</th>
                     <th scope="col">OrderBy</th>
                     <th scope="col">Status</th>
@@ -33,7 +31,7 @@
                 foreach ($orders as $key => $value) {
                 ?>
                 <tr>
-                    <th scope="row">1</th>
+                    <th scope="row"><?php echo $value['id']; ?></th>
                     <td>
                         <div class="me-2 d-flex">
                             <div class="avatar flex-shrink-0 me-3">
@@ -41,8 +39,8 @@
                                         class='bx bxs-shopping-bag-alt'></i></span>
                             </div>
                             <div class="div">
-                                <h6 class="mb-0"><?php echo $value['username']; ?></h6>
-                                <small class="text-muted">Mobile, Earbuds, TV</small>
+                                <h6 class="mb-0">Payment</h6>
+                                <small class="text-muted"><?php echo $value['payment']; ?></small>
                             </div>
                         </div>
                     </td>
@@ -53,34 +51,21 @@
                             </small>
                         </div>
                     </td>
+                  
                     <td>
                         <div class="user-progress">
-                            <small class="fw-semibold">
-                                <?php echo $value['price']; ?>
-                            </small>
+                            <small class="fw-semibold">  <?php echo $value['createdAt']; ?></small>
                         </div>
                     </td>
                     <td>
                         <div class="user-progress">
-                            <small class="fw-semibold">
-                                <?php echo $value['amount'] * $value['price']; ?>
-                            </small>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="user-progress">
-                            <small class="fw-semibold"> 10/12/2022</small>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="user-progress">
-                            <small class="fw-semibold"> orderby DTD</small>
+                            <small class="fw-semibold"> <?php echo $value['username']; ?></small>
                         </div>
                     </td>
                     <td>
                         <div class="user-progress">
                             <small
-                                class="fw-semibold text-<?php echo $value['status'] !== 'success' ? 'danger' : $value['status']; ?>">
+                                class="fw-semibold text-<?php echo $value['status'] !== 'Completed' ? 'danger' : "success" ?>">
                                 <?php echo $value['status']; ?>
                             </small>
                         </div>

@@ -3,7 +3,7 @@
         <div class="col-sm-7">
             <div class="card-body">
                 <h5 class="card-title text-primary">
-                    Congratulations John! 🎉
+                    Congratulations <?php echo ($_SESSION['user']); ?> 🎉
                 </h5>
                 <p class="mb-4">
                     You have done <span class="fw-bold">72%</span> more

@@ -11,7 +11,7 @@ class Order
     }
     public function getBetSeller()
     {
-        $sql = 'SELECT tbl_order_products.productId,SUM(tbl_order_products.quantity) as total, tbl_order_products.amount FROM tbl_orders INNER JOIN tbl_order_products ON tbl_order_products.orderId = tbl_orders.id WHERE status="Completed"  GROUP by productId  ORDER BY total DESC LIMIT 10;';
+        $sql = 'SELECT tbl_order_products.productId,SUM(tbl_order_products.quantity), SUM(tbl_orders.amount) as total, tbl_order_products.amount FROM tbl_orders INNER JOIN tbl_order_products ON tbl_order_products.orderId = tbl_orders.id WHERE status="Completed"  GROUP by productId  ORDER BY total DESC LIMIT 10;';
         $result = $this->connect->query($sql);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
