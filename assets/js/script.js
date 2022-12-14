@@ -19,7 +19,9 @@ function handleCheckout(e) {
             shoppingCart.clearCart();
             window.location = "/?controller=shop&action=checkout&id=" + data;
         }
-    });
+        alert('Bạn cần đăng nhập để thanh toán');
+        location.href = "/?controller=pages&action=signIn"
+    })
 }
 
 $("#submitSearch").submit(function (t) {
