@@ -1,7 +1,9 @@
 <?php
 require_once('controllers/BaseController.php');
 require_once('models/Product.php');
+require_once('models/Order.php');
 require_once('models/Category.php');
+require_once('models/ShippingAddress.php');
 require_once('models/dto/ProductFilter.php');
 require_once('models/dto/Level.php');
 
@@ -48,9 +50,15 @@ class ShopController extends BaseController
 
     public function checkout()
     {
-        echo $_GET['id'];
+        $orderDetails = Order::find($_GET['id']);
+        $categories = Category::all();
+        $shippingAddress = ShippingAddress::find(self::getCurrentUser());
+
         $data = array(
-            'levels' => $this->levels
+            'levels' => $this->levels,
+            'categories' => $categories,
+            'orderDetails' => $orderDetails,
+            'shippingAddress' => $shippingAddress
         );
         $this->render('checkout', $data);
     }
@@ -60,22 +68,24 @@ class ShopController extends BaseController
         if (self::getCurrentUser() === null) {
             echo 'LOGIN';
         } else {
+            $orderData = (new OrderDto())
+                ->setStatus('Completed')
+                ->setId($_POST['id'])
+                ->setPayment($_POST['payment']);
+            Order::saveCompletion($orderData);
             echo 'SUCCESSFULLY';
         }
     }
 
     public function checkoutOrder()
     {
-        if (true) {
-            $response = '';
-            $data = json_decode($_POST['data']);
-            for ($i = 0; $i < count($data); $i++) {
-                $response += $data[$i]->name;
-            }
-            echo count($data);
-        } else {
-            echo 'FAIL';
-        }
+        $listOrder = json_decode($_POST['data']);
+        $orderData = (new OrderDto())
+            ->setStatus('Pending')
+            ->setUsername(self::getCurrentUser())
+            ->setAmount($listOrder->amount);
+        $id = Order::saveDraft($orderData, $listOrder->cart);
+        echo $id;
     }
 
     public function single()

@@ -9,11 +9,11 @@
             Shop
         </a>
     </li>
-    <li class="nav-item ">
-        <a class="nav-link" href="/?controller=pages&action=contact">
-            Liên hệ
-        </a>
-    </li>
+<!--    <li class="nav-item ">-->
+<!--        <a class="nav-link" href="/?controller=pages&action=contact">-->
+<!--            Liên hệ-->
+<!--        </a>-->
+<!--    </li>-->
     <li class="nav-item ">
         <a class="nav-link" href="/?controller=pages&action=about">
             Giới thiệu

@@ -93,11 +93,6 @@ function showStatus(string $status): string
                                         <td class="align-middle border-top-0">
                                         đ' . number_format($order->getAmount(), 0, '', '.') . '
                                 </td>
-                                <td class="text-muted align-middle border-top-0">
-                                    <a href="#" class="text-inherit" data-bs-toggle="tooltip"
-                                       data-bs-placement="top" data-bs-title="Cancel"><i
-                                                class="feather-icon icon-x-circle"></i></a>
-                                </td>
                                 </tr>
                                 ';
                                 }

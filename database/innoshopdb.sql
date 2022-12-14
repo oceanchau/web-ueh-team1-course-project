@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_categories` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT 1,
   `img` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

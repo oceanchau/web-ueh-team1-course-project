@@ -35,9 +35,14 @@
                                        aria-controls="flush-collapseOne">
                                         <i class="feather-icon icon-map-pin me-2 text-muted"></i>Địa chỉ giao hàng
                                     </a>
-                                    <!-- btn -->
-                                    <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
-                                       data-bs-target="#addAddressModal">Thêm địa chỉ</a>
+                                    <?php
+                                    if (count($shippingAddress) === 0) {
+                                        echo '
+                                             <a href="#" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addAddressModal">Thêm địa chỉ</a>
+                                            ';
+                                    }
+                                    ?>
                                     <!-- collapse -->
                                 </div>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse show"
@@ -45,44 +50,36 @@
                                     <div class="mt-5">
                                         <div class="row">
                                             <div class="col-lg-6 col-12 mb-4">
-                                                <!-- form -->
-                                                <div class="border p-6 rounded-3">
-                                                    <div class="form-check mb-4">
-                                                        <input class="form-check-input" type="radio"
-                                                               name="flexRadioDefault" id="homeRadio" checked>
-                                                        <label class="form-check-label text-dark" for="homeRadio">
-                                                            Trang chủ
-                                                        </label>
+                                                <?php
+                                                foreach ($shippingAddress as $ship) {
+                                                    echo '
+                                                    <div class="card-body p-6">
+                                                        <div class="form-check mb-4">
+                                                            <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                                   id="homeRadio" checked>
+                                                            <label class="form-check-label text-dark fw-semi-bold" for="homeRadio">
+                                                                Nhà
+                                                            </label>
+                                                        </div>
+                                                        <!-- address -->
+                                                        <p class="mb-6">' . $ship->getFullname() . '<br>
+                
+                                                            ' . $ship->getAddress() . ',
+                
+                                                            ' . $ship->getCity() . '<br>
+                
+                                                            ' . $ship->getPhone() . '</p>
+                                                        <!-- btn 
+                                                        <div class="mt-4">
+                                                            <a href="#" class="text-inherit">Edit </a>
+                                                            <a href="#" data-id="' . $ship->getId() . '" class="text-danger ms-3" data-bs-toggle="modal"
+                                                               data-bs-target="#deleteModal">Delete
+                                                            </a>
+                                                        </div>-->
                                                     </div>
-                                                    <!-- address -->
-                                                    <address><strong>Jitu Chauhan</strong> <br>
-
-                                                        4450 North Avenue Oakland, <br>
-
-                                                        Nebraska, United States,<br>
-
-                                                        <abbr title="Phone">P: 402-776-1106</abbr></address>
-                                                    <span class="text-danger">Default address </span>
-
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-12 mb-4">
-                                                <!-- input -->
-                                                <div class="border p-6 rounded-3">
-                                                    <div class="form-check mb-4">
-                                                        <input class="form-check-input" type="radio"
-                                                               name="flexRadioDefault" id="officeRadio">
-                                                        <label class="form-check-label text-dark" for="officeRadio">
-                                                            Cơ quan
-                                                        </label>
-                                                    </div>
-                                                    <address><strong>Nitu Chauhan</strong> <br> 3853 Coal Road, <br>
-                                                        Tannersville, Pennsylvania, 18372, USA,<br>
-
-                                                        <abbr title="Phone">P: 402-776-1106</abbr>
-                                                    </address>
-
-                                                </div>
+                                                ';
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
@@ -101,10 +98,12 @@
                                      data-bs-parent="#accordionFlushExample">
 
                                     <div class="mt-5">
-                                        <label for="DeliveryInstructions" class="form-label sr-only">Ghi chú giao hàng</label>
+                                        <label for="DeliveryInstructions" class="form-label sr-only">Ghi chú giao
+                                            hàng</label>
                                         <textarea class="form-control" id="DeliveryInstructions" rows="3"
                                                   placeholder="Viết ghi chú giao hàng "></textarea>
-                                        <p class="form-text">Thêm ghi chú về cách bạn muốn đơn đặt hàng của mình được mua và/hoặc giao</p>
+                                        <p class="form-text">Thêm ghi chú về cách bạn muốn đơn đặt hàng của mình được
+                                            mua và/hoặc giao</p>
                                         <div class="mt-5 d-flex justify-content-end">
                                             <a href="#" class="btn btn-primary ms-2" data-bs-toggle="collapse"
                                                data-bs-target="#flush-collapseFour" aria-expanded="false"
@@ -136,7 +135,8 @@
                                                         <div class="form-check ">
                                                             <!-- input -->
                                                             <input class="form-check-input" type="radio"
-                                                                   name="flexRadioDefault" id="creditdebitcard">
+                                                                   name="flexRadioPayment" checked
+                                                                   value="creditdebitcard" id="creditdebitcard">
                                                             <label class="form-check-label ms-2" for="creditdebitcard">
 
                                                             </label>
@@ -195,7 +195,8 @@
                                                     <div class="d-flex">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="radio"
-                                                                   name="flexRadioDefault" id="cashonDelivery">
+                                                                   name="flexRadioPayment" value="cashonDelivery"
+                                                                   id="cashonDelivery">
                                                             <label class="form-check-label ms-2" for="cashonDelivery">
 
                                                             </label>
@@ -203,7 +204,8 @@
                                                         <div>
                                                             <!-- title -->
                                                             <h5 class="mb-1 h6"> Thanh toán khi nhận hàng</h5>
-                                                            <p class="mb-0 small">Thanh toán khi đơn hàng được giao đến.</p>
+                                                            <p class="mb-0 small">Thanh toán khi đơn hàng được giao
+                                                                đến.</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,7 +216,9 @@
                                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
                                                    aria-expanded="false"
                                                    aria-controls="flush-collapseThree">Quay lại</a>
-                                                <button href="#" id="submitPlaceOrder" type="button" class="btn btn-primary ms-2">Đặt hàng</button>
+                                                <button href="#" id="submitPlaceOrder" type="button"
+                                                        class="btn btn-primary ms-2">Đặt hàng
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -227,128 +231,38 @@
 
                     </div>
 
-                    <div class="col-12 col-md-12 offset-lg-1 col-lg-4">
+                    <div class="col-12 col-md-12 col-lg-5">
                         <div class="mt-4 mt-lg-0">
                             <div class="card shadow-sm">
                                 <h5 class="px-6 py-4 bg-transparent mb-0">Chi tiết hóa đơn</h5>
-                                <ul class="list-group list-group-flush">
-                                    <!-- list group item -->
+                                <ul class="list-group order-details list-group-flush">
+                                    <?php
+                                    $totalAmount = 0;
+                                    foreach ($orderDetails as $item) {
+                                        $totalAmount += $item->getAmount();
+                                        //$item = new OrderData();
+                                        echo '<!-- list group item -->
                                     <li class="list-group-item px-4 py-3">
                                         <div class="row align-items-center">
                                             <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-1.jpg" alt="Ecommerce"
+                                                <img src="assets/images/products/' . $item->getImg()[0] . '" alt="Ecommerce"
                                                      class="img-fluid"></div>
                                             <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">Haldiram's Sev Bhujia</h6>
-                                                <span><small class="text-muted">.98 / lb</small></span>
-
+                                                <h6 class="mb-0">'.$item->getProductName().'</h6>
                                             </div>
                                             <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
+                                                <span>'.$item->getQuantity().'</span>
 
                                             </div>
                                             <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">đ5.00</span>
-
+                                                <span class="fw-bold">đ' . number_format($item->getAmount(), 0, '', '.') . '</span>
                                             </div>
                                         </div>
 
-                                    </li>
-                                    <!-- list group item -->
-                                    <li class="list-group-item px-4 py-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-2.jpg" alt="Ecommerce"
-                                                     class="img-fluid"></div>
-                                            <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">NutriChoice Digestive</h6>
-                                                <span><small class="text-muted">250g</small></span>
+                                    </li>';
+                                    }
+                                    ?>
 
-                                            </div>
-                                            <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
-
-                                            </div>
-                                            <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">đ20.00</span>
-                                                <div class="text-decoration-line-through text-muted small">đ26.00</div>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <!-- list group item -->
-                                    <li class="list-group-item px-4 py-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-3.jpg" alt="Ecommerce"
-                                                     class="img-fluid"></div>
-                                            <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">Cadbury 5 Star Chocolate</h6>
-                                                <span><small class="text-muted">1 kg</small></span>
-
-                                            </div>
-                                            <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
-
-                                            </div>
-                                            <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">đ15.00</span>
-                                                <div class="text-decoration-line-through text-muted small">đ20.00</div>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                    <!-- list group item -->
-                                    <li class="list-group-item px-4 py-3">
-                                        <div class="row align-items-center">
-                                            <div class="col-2 col-md-2">
-                                                <img src="assets/images/products/product-img-4.jpg" alt="Ecommerce"
-                                                     class="img-fluid"></div>
-                                            <div class="col-5 col-md-5">
-                                                <h6 class="mb-0">Onion Flavour Potato</h6>
-                                                <span><small class="text-muted">250g</small></span>
-
-                                            </div>
-                                            <div class="col-2 col-md-2 text-center text-muted">
-                                                <span>1</span>
-
-                                            </div>
-                                            <div class="col-3 text-lg-end text-start text-md-end col-md-3">
-                                                <span class="fw-bold">đ15.00</span>
-                                                <div class="text-decoration-line-through text-muted small">đ20.00</div>
-                                            </div>
-                                        </div>
-
-                                    </li>
-
-                                    <!-- list group item -->
-                                    <li class="list-group-item px-4 py-3">
-                                        <div class="d-flex align-items-center justify-content-between   mb-2">
-                                            <div>
-                                                Tổng tiền
-
-                                            </div>
-                                            <div class="fw-bold">
-                                                đ70.00
-
-                                            </div>
-
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between  ">
-                                            <div>
-                                                VAT <i class="feather-icon icon-info text-muted"
-                                                               data-bs-toggle="tooltip"
-                                                               title=thuế 10% đơn hảng></i>
-
-                                            </div>
-                                            <div class="fw-bold">
-                                                đ3.00
-
-                                            </div>
-
-                                        </div>
-
-                                    </li>
                                     <!-- list group item -->
                                     <li class="list-group-item px-4 py-3">
                                         <div class="d-flex align-items-center justify-content-between fw-bold">
@@ -356,7 +270,7 @@
                                                 Tổng tiền
                                             </div>
                                             <div>
-                                                đ73.00
+                                                đ<?= $totalAmount ?>
 
 
                                             </div>
