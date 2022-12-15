@@ -1,43 +1,30 @@
 <?php
-require "./configs/connect.php";
-require "./utils/query_parrams.php";
-require "./utils/get_hyper_link.php";
-require "./utils/load_file.php";
-require "./helpers/const.php";
-require_once "models/product_model.php";
-session_start();
+require_once "models/transtaction_model.php";
+require_once "models/order_model.php";
 
-$pages = getPages();
-$product = new Product();
+$transaction = new Transactions();
 
-if (!isset($_SESSION['user'])) {
-    header('Location: view/login.php');
-}
-if (isset($_POST['updateProduct'])) {
-    $id = $_POST['id'];
-    $name = $_POST['name'];
-    $amount = $_POST['amount'];
-    $price = $_POST['price'];
-    $imageUrl = $_POST['imageUrl'];
-    $description = $_POST['description'];
-    $code = $_POST['code'];
-    $product->updateProduct($id, $name, $imageUrl, $description, $price, $amount,$code);
+$transactions = $transaction->getTransactions(3);
 
+function getTotalMoneySales()
+{
+    return number_format(400000, 0, ".", ",") . " VND";
 }
 
-if (isset($_POST['deleteProduct'])) {
-    $product->deleteProduct($_POST['id']);
+function getTotalMoneyTransactions()
+{
+    return number_format(400000, 0, ".", ",") . " VND";
 }
 
-if (isset($_POST['createProduct'])) {
-    $name = $_POST['name'];
-    $amount = $_POST['amount'];
-    $price = $_POST['price'];
-    $imageUrl = $_POST['imageUrl'];
-    $description = $_POST['description'];
-    $code = $_POST['code'];
-    $product->insertProduct($name, $imageUrl, $description, $price, $amount,$code);
+function getTotalMoneyPayments()
+{
+    return number_format(400000, 0, ".", ",") . " VND";
 }
 
+function getPendingOrder(){
+    $order = new Order();
+    $ordersIsPending = $order->getOrderByStatus("Pending");
+    return "# ".count($ordersIsPending);
+}
 
 ?>

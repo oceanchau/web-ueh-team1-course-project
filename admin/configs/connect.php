@@ -4,7 +4,7 @@ $conn = null;
 function openConnect()
 {
   $servername = "localhost";
-  $dbname = "uehShop";
+  $dbname = "id17378250_webbanhang";
   $username = "root";
   $password = "";
   try {

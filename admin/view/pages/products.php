@@ -1,9 +1,5 @@
 <?php
-include_once("components/modal/add-product-modal.php");
-$products = $product->getProducts();
-$pageNumber = getParams("pageNumber");
-$limit = getParams("limit");
-$total_pages = ceil(count($products) / $limit);
+include_once("view/components/modal/add-product-modal.php");
 ?>
 
 <div class="card h-100">
@@ -31,7 +27,7 @@ $total_pages = ceil(count($products) / $limit);
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
 
-                    <th scope="col">Amout</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Price</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -48,7 +44,7 @@ $total_pages = ceil(count($products) / $limit);
                     <td>
                         <div class="me-2 d-flex">
                             <div class="avatar flex-shrink-0 me-3">
-                                <img class="w-100" src="<?php echo $value['image']; ?>" alt="banner">
+                                <img class="w-100" src="<?php echo $value['img']; ?>" alt="banner">
                             </div>
                             <div class="div">
                                 <h6 class="mb-0">
@@ -61,7 +57,7 @@ $total_pages = ceil(count($products) / $limit);
                     <td>
                         <div class="user-progress">
                             <small class="fw-semibold">
-                                <?php echo $value['amount']; ?>
+                                <?php echo $value['status']; ?>
                             </small>
                         </div>
                     </td>
@@ -85,6 +81,6 @@ $total_pages = ceil(count($products) / $limit);
 
     </div>
     <div class="card-footer">
-        <?php include_once "components/admin-pagination.php"; ?>
+        <?php include_once "view/components/admin-pagination.php"; ?>
     </div>
 </div>
